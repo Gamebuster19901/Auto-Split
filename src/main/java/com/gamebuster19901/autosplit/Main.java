@@ -46,6 +46,12 @@ public class Main {
 	public Main() throws ClassNotFoundException, InstantiationException, IllegalAccessException, UnsupportedLookAndFeelException {
 		JFrame frame = new JFrame();
 		
+		/*
+		 * 
+		 * Main Window
+		 * 
+		 */
+		
 		UIManager.setLookAndFeel(UIManager.getCrossPlatformLookAndFeelClassName());
 		
 		frame.setName("mainWindow");
@@ -63,12 +69,24 @@ public class Main {
 		
 		frame.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		
+		/*
+		 * 
+		 * Central Widget
+		 * 
+		 */
+		
 		centralWidget = new JPanel();
 		centralWidget.setSize(MIN_SIZE);
 		centralWidget.setName("centralWidget");
 		centralWidget.setLayout(null);
 		
 		frame.add(centralWidget);
+		
+		/*
+		 * 
+		 * Split Image Folder Label
+		 * 
+		 */
 		
 		splitImageFolderLabel = new JLabel();
 		splitImageFolderLabel.setText("Split Image Folder:");
@@ -78,6 +96,12 @@ public class Main {
 		splitImageFolderLabel.setBounds(90, 13, getStringWidth(splitImageFolderLabel), 16);
 		
 		centralWidget.add(splitImageFolderLabel);
+		
+		/*
+		 * 
+		 * Split Image Folder Line Edit
+		 * 
+		 */
 		
 		splitImageFolderLineEdit = new JTextField();
 		splitImageFolderLineEdit.setBackground(Color.GRAY);
@@ -90,6 +114,12 @@ public class Main {
 		
 		centralWidget.add(splitImageFolderLineEdit);
 		
+		/*
+		 * 
+		 * Browse Button
+		 * 
+		 */
+		
 		browseButton = new JButton();
 		browseButton.setText("Browse");
 		browseButton.setFont(fontMetrics.getFont());
@@ -99,6 +129,12 @@ public class Main {
 
 		centralWidget.add(browseButton);
 		
+		/*
+		 * 
+		 * X Label
+		 * 
+		 */
+		
 		xLabel = new JLabel();
 		xLabel.setFont(fontMetrics.getFont());
 		xLabel.setText("X");
@@ -107,6 +143,11 @@ public class Main {
 		
 		centralWidget.add(xLabel);
 		
+		/*
+		 * 
+		 * Y Label
+		 * 
+		 */
 		yLabel = new JLabel();
 		yLabel.setFont(fontMetrics.getFont());
 		yLabel.setText("Y");
