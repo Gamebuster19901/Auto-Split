@@ -2,10 +2,7 @@ package com.gamebuster19901.autosplit;
 
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.FontMetrics;
-import java.awt.Graphics;
 import java.awt.Rectangle;
-import java.awt.image.BufferedImage;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -20,6 +17,9 @@ import javax.swing.SpinnerNumberModel;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
+import com.gamebuster19901.autosplit.swing.FontSettings;
+import com.gamebuster19901.autosplit.swing.GButton;
+
 import static javax.swing.JFrame.DISPOSE_ON_CLOSE;
 
 public class Main {
@@ -33,24 +33,23 @@ public class Main {
 		}
 	}
 	
-	private final Graphics graphics = new BufferedImage(1,1,BufferedImage.TYPE_INT_ARGB).getGraphics();
-	private final FontMetrics fontMetrics = graphics.getFontMetrics();
+	private final FontSettings fontSettings = new FontSettings();
 	
 	final JPanel centralWidget;
 	final JLabel splitImageFolderLabel;
 	final JTextField splitImageFolderLineEdit;
-	final JButton browseButton;
+	final GButton browseButton;
 	final JLabel xLabel;
 	final JLabel yLabel;
 	final JCheckBox liveImageCheckBox;
 	final JCheckBox loopCheckBox;
 	final JCheckBox autoRestartOnResetCheckBox;
-	final JButton selectRegionButton;
+	final GButton selectRegionButton;
 	final JLabel similarityThresholdLabel;
 	final JSpinner similarityThresholdDoubleSpinBox;
-	final JButton startAutoSplitterButton;
-	final JButton resetButton;
-	final JButton undoSplitButton;
+	final GButton startAutoSplitterButton;
+	final GButton resetButton;
+	final GButton undoSplitButton;
 	
 	public static void main(String[] args) {}
 	
@@ -97,7 +96,7 @@ public class Main {
 		
 		splitImageFolderLabel = new JLabel();
 		splitImageFolderLabel.setText("Split Image Folder:");
-		splitImageFolderLabel.setFont(fontMetrics.getFont());
+		splitImageFolderLabel.setFont(fontSettings.getFont());
 		splitImageFolderLabel.setLocation(16, 90);
 		splitImageFolderLabel.setSize(splitImageFolderLabel.getPreferredSize());
 		splitImageFolderLabel.setBounds(90, 13, getStringWidth(splitImageFolderLabel), 16);
@@ -127,11 +126,7 @@ public class Main {
 		 * 
 		 */
 		
-		browseButton = new JButton();
-		browseButton.setText("Browse");
-		browseButton.setFont(fontMetrics.getFont());
-		browseButton.setFocusable(false);
-		browseButton.setName("browseButton");
+		browseButton = new GButton("Browse", "browseButton");
 		browseButton.setBounds(new Rectangle(rightOf(splitImageFolderLineEdit, 6), 9, calculateButtonWidth(browseButton), 24));
 
 		centralWidget.add(browseButton);
@@ -143,7 +138,7 @@ public class Main {
 		 */
 		
 		xLabel = new JLabel();
-		xLabel.setFont(fontMetrics.getFont());
+		xLabel.setFont(fontSettings.getFont());
 		xLabel.setText("X");
 		xLabel.setBounds(25, 139, getStringWidth(xLabel), 16);
 		xLabel.setName("xLabel");
@@ -157,7 +152,7 @@ public class Main {
 		 */
 		
 		yLabel = new JLabel();
-		yLabel.setFont(fontMetrics.getFont());
+		yLabel.setFont(fontSettings.getFont());
 		yLabel.setText("Y");
 		yLabel.setBounds(81, 139, getStringWidth(yLabel), 16);
 		yLabel.setName("xLabel");
@@ -206,12 +201,8 @@ public class Main {
 		 * 
 		 */
 		
-		selectRegionButton = new JButton();
-		selectRegionButton.setText("Select Region");
-		selectRegionButton.setFont(fontMetrics.getFont());
+		selectRegionButton = new GButton("Select Region", "selectRegionButton");
 		selectRegionButton.setBounds(new Rectangle(5, 67, calculateButtonWidth(selectRegionButton), 23));
-		selectRegionButton.setFocusable(false);
-		selectRegionButton.setName("selectRegionButton");
 		
 		centralWidget.add(selectRegionButton);
 		
@@ -223,7 +214,7 @@ public class Main {
 		
 		similarityThresholdLabel = new JLabel();
 		similarityThresholdLabel.setText("Similarity Threshold");
-		similarityThresholdLabel.setFont(fontMetrics.getFont());
+		similarityThresholdLabel.setFont(fontSettings.getFont());
 		similarityThresholdLabel.setBounds(new Rectangle(10, 378, getStringWidth(similarityThresholdLabel), 16));
 		similarityThresholdLabel.setName("similarityThresholdLabel");
 		
@@ -246,12 +237,8 @@ public class Main {
 		 * Start Auto Splitter Button
 		 * 
 		 */
-		startAutoSplitterButton = new JButton();
-		startAutoSplitterButton.setText("Start Auto Splitter");
-		startAutoSplitterButton.setFont(fontMetrics.getFont());
+		startAutoSplitterButton = new GButton("Start Auto Splitter", "startAutoSplitterButton");
 		startAutoSplitterButton.setBounds(506, 425, calculateButtonWidth(startAutoSplitterButton), 31);
-		startAutoSplitterButton.setFocusable(false);
-		startAutoSplitterButton.setName("startAutoSplitterButton");
 		
 		centralWidget.add(startAutoSplitterButton);
 		
@@ -260,12 +247,8 @@ public class Main {
 		 * Reset Button
 		 * 
 		 */
-		resetButton = new JButton();
-		resetButton.setText("Reset");
-		resetButton.setFont(fontMetrics.getFont());
+		resetButton = new GButton("Reset", "resetButton");
 		resetButton.setBounds(506, 385, calculateButtonWidth(startAutoSplitterButton), 31);
-		resetButton.setFocusable(false);
-		resetButton.setName("resetButton");
 		
 		centralWidget.add(resetButton);
 		
@@ -275,12 +258,8 @@ public class Main {
 		 * 
 		 */
 		
-		undoSplitButton = new JButton();
-		undoSplitButton.setText("Undo Split");
-		undoSplitButton.setFont(fontMetrics.getFont());
-		undoSplitButton.setBounds(477, 251, calculateButtonWidth(undoSplitButton), 21);
-		undoSplitButton.setFocusable(false);
-		undoSplitButton.setName("undoSplitButton");
+		undoSplitButton = new GButton("Undo Split", "undoSplitButton");
+		undoSplitButton.setBounds(489, 251, calculateButtonWidth(undoSplitButton), 21);
 		
 		centralWidget.add(undoSplitButton);
 		
