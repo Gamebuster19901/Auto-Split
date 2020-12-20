@@ -8,7 +8,7 @@ This program is not ready for general usage.
 - Originally Created by [Toufool](https://twitter.com/Toufool) and [Faschz](https://twitter.com/faschz).
 - https://github.com/harupy/ for the snipping tool code that is used in the original autosplitter.
 - [amaringos](https://twitter.com/amaringos) for the icon.
-- [ZanasoBayncuh](https://twitter.com/ZanasoBayncuh) for motivating me to start this project back up and for all of the time spent testing and suggesting improvements.
+- [ZanasoBayncuh](https://twitter.com/ZanasoBayncuh) for motivating the creators to start this project back up and for all of the time spent testing and suggesting improvements.
 
 ## Donate to the original creators
 [![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=BYRHQG69YRHBA&item_name=AutoSplit+development&currency_code=USD&source=url)
