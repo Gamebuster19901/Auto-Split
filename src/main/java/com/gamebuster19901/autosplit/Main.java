@@ -50,6 +50,7 @@ public class Main {
 	final JSpinner similarityThresholdDoubleSpinBox;
 	final JButton startAutoSplitterButton;
 	final JButton resetButton;
+	final JButton undoSplitButton;
 	
 	public static void main(String[] args) {}
 	
@@ -267,6 +268,27 @@ public class Main {
 		resetButton.setName("resetButton");
 		
 		centralWidget.add(resetButton);
+		
+		/*
+		 * 
+		 * Undo Split Button
+		 * 
+		 */
+		
+		undoSplitButton = new JButton();
+		undoSplitButton.setText("Undo Split");
+		undoSplitButton.setFont(fontMetrics.getFont());
+		undoSplitButton.setBounds(477, 251, calculateButtonWidth(undoSplitButton), 21);
+		undoSplitButton.setFocusable(false);
+		undoSplitButton.setName("undoSplitButton");
+		
+		centralWidget.add(undoSplitButton);
+		
+		/*
+		 * 
+		 * Frame And Widget 
+		 * 
+		 */
 		
 		Dimension MIN_SIZE = new Dimension(rightOf(startAutoSplitterButton, 16), below(startAutoSplitterButton, 16));		
 		centralWidget.setSize(MIN_SIZE);
