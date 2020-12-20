@@ -49,6 +49,7 @@ public class Main {
 	final JButton selectRegionButton;
 	final JLabel similarityThresholdLabel;
 	final JSpinner similarityThresholdDoubleSpinBox;
+	final JButton startAutoSplitterButton;
 	
 	public static void main(String[] args) {}
 	
@@ -242,6 +243,21 @@ public class Main {
 		similarityThresholdDoubleSpinBox.setName("similarityThresholdDoubleSpinBox");
 		
 		centralWidget.add(similarityThresholdDoubleSpinBox);
+		
+		/*
+		 * 
+		 * Start Auto Splitter Button
+		 * 
+		 */
+		startAutoSplitterButton = new JButton();
+		startAutoSplitterButton.setText("Start Auto Splitter");
+		startAutoSplitterButton.setFont(fontMetrics.getFont());
+		startAutoSplitterButton.setBounds(506, 385, calculateButtonWidth(startAutoSplitterButton), 31);
+		startAutoSplitterButton.setFocusable(false);
+		startAutoSplitterButton.setName("startAutoSplitterButton");
+		
+		centralWidget.add(startAutoSplitterButton);
+		
 		
 		frame.setVisible(true);
 	}
