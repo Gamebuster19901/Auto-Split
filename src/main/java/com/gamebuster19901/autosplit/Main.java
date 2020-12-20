@@ -19,6 +19,7 @@ import javax.swing.UnsupportedLookAndFeelException;
 
 import com.gamebuster19901.autosplit.swing.FontSettings;
 import com.gamebuster19901.autosplit.swing.GButton;
+import com.gamebuster19901.autosplit.swing.GLabel;
 
 import static javax.swing.JFrame.DISPOSE_ON_CLOSE;
 
@@ -36,21 +37,22 @@ public class Main {
 	private final FontSettings fontSettings = new FontSettings();
 	
 	final JPanel centralWidget;
-	final JLabel splitImageFolderLabel;
+	final GLabel splitImageFolderLabel;
 	final JTextField splitImageFolderLineEdit;
 	final GButton browseButton;
-	final JLabel xLabel;
-	final JLabel yLabel;
+	final GLabel xLabel;
+	final GLabel yLabel;
 	final JCheckBox liveImageCheckBox;
 	final JCheckBox loopCheckBox;
 	final JCheckBox autoRestartOnResetCheckBox;
 	final GButton selectRegionButton;
-	final JLabel similarityThresholdLabel;
+	final GLabel similarityThresholdLabel;
 	final JSpinner similarityThresholdDoubleSpinBox;
 	final GButton startAutoSplitterButton;
 	final GButton resetButton;
 	final GButton undoSplitButton;
 	final GButton skipSplitButton;
+	final GLabel pauseLabel;
 	
 	public static void main(String[] args) {}
 	
@@ -96,11 +98,7 @@ public class Main {
 		 * 
 		 */
 		
-		splitImageFolderLabel = new JLabel();
-		splitImageFolderLabel.setText("Split Image Folder:");
-		splitImageFolderLabel.setFont(fontSettings.getFont());
-		splitImageFolderLabel.setLocation(16, 90);
-		splitImageFolderLabel.setSize(splitImageFolderLabel.getPreferredSize());
+		splitImageFolderLabel = new GLabel("Split Image Folder", "splitImageFolderLabel");
 		splitImageFolderLabel.setBounds(90, 13, getStringWidth(splitImageFolderLabel), 16);
 		
 		centralWidget.add(splitImageFolderLabel);
@@ -139,11 +137,8 @@ public class Main {
 		 * 
 		 */
 		
-		xLabel = new JLabel();
-		xLabel.setFont(fontSettings.getFont());
-		xLabel.setText("X");
+		xLabel = new GLabel("X", "xLabel");
 		xLabel.setBounds(25, 139, getStringWidth(xLabel), 16);
-		xLabel.setName("xLabel");
 		
 		centralWidget.add(xLabel);
 		
@@ -153,11 +148,8 @@ public class Main {
 		 * 
 		 */
 		
-		yLabel = new JLabel();
-		yLabel.setFont(fontSettings.getFont());
-		yLabel.setText("Y");
+		yLabel = new GLabel("Y", "yLabel");
 		yLabel.setBounds(81, 139, getStringWidth(yLabel), 16);
-		yLabel.setName("xLabel");
 		
 		centralWidget.add(yLabel);
 		
@@ -214,11 +206,8 @@ public class Main {
 		 * 
 		 */
 		
-		similarityThresholdLabel = new JLabel();
-		similarityThresholdLabel.setText("Similarity Threshold");
-		similarityThresholdLabel.setFont(fontSettings.getFont());
+		similarityThresholdLabel = new GLabel("Similarity Threshold", "similarityThresholdLabel");
 		similarityThresholdLabel.setBounds(new Rectangle(10, 378, getStringWidth(similarityThresholdLabel), 16));
-		similarityThresholdLabel.setName("similarityThresholdLabel");
 		
 		centralWidget.add(similarityThresholdLabel);
 		
