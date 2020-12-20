@@ -50,6 +50,7 @@ public class Main {
 	final GButton startAutoSplitterButton;
 	final GButton resetButton;
 	final GButton undoSplitButton;
+	final GButton skipSplitButton;
 	
 	public static void main(String[] args) {}
 	
@@ -263,6 +264,17 @@ public class Main {
 		undoSplitButton.setBounds(489, 251, calculateButtonWidth(undoSplitButton), 21);
 		
 		centralWidget.add(undoSplitButton);
+		
+		/*
+		 * 
+		 * Skip Split Button
+		 * 
+		 */
+		
+		skipSplitButton = new GButton("Skip Split", "skipSplitButton");
+		skipSplitButton.setBounds(rightOf(undoSplitButton, 4), 251, 61, 21);
+		
+		centralWidget.add(skipSplitButton);
 		
 		/*
 		 * 
