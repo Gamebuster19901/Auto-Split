@@ -1,28 +1,49 @@
 package com.gamebuster19901.autosplit;
 
-import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.FontMetrics;
+import java.awt.Graphics;
+import java.awt.Rectangle;
+import java.awt.image.BufferedImage;
 
 import javax.swing.ImageIcon;
+import javax.swing.JComponent;
 import javax.swing.JFrame;
-//import javax.swing.JLabel;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
 
 import static javax.swing.JFrame.DISPOSE_ON_CLOSE;
 
 public class Main {
 
 	private static final Dimension MIN_SIZE = new Dimension(622, 490);
-	public static final Main INSTANCE = new Main();
+	public static final Main INSTANCE;
+	static {
+		try {
+			INSTANCE = new Main();
+		} catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException e) {
+			// TODO Auto-generated catch block
+			throw new Error(e);
+		}
+	}
 	
 	final JPanel centralWidget;
-	//final JLabel splitImageFolderLabel;
+	final JLabel splitImageFolderLabel;
+	final JTextField splitImageFolderLineEdit;
+	
+	private final Graphics graphics = new BufferedImage(1,1,BufferedImage.TYPE_INT_ARGB).getGraphics();
+	private final FontMetrics fontMetrics = graphics.getFontMetrics();
 	
 	public static void main(String[] args) {}
 	
-	public Main() {
+	public Main() throws ClassNotFoundException, InstantiationException, IllegalAccessException, UnsupportedLookAndFeelException {
 		JFrame frame = new JFrame();
+		
+		UIManager.setLookAndFeel(UIManager.getCrossPlatformLookAndFeelClassName());
 		
 		frame.setName("MainWindow");
 		frame.setSize(MIN_SIZE);
@@ -41,13 +62,40 @@ public class Main {
 		
 		centralWidget = new JPanel();
 		centralWidget.setSize(MIN_SIZE);
-		centralWidget.setBackground(Color.blue); //testing
 		centralWidget.setName("centralWidget");
-		centralWidget.setLayout(new BorderLayout());
+		centralWidget.setLayout(null);
 		
 		frame.add(centralWidget);
 		
+		splitImageFolderLabel = new JLabel();
+		splitImageFolderLabel.setText("Split Image Folder:");
+		splitImageFolderLabel.setFont(fontMetrics.getFont());
+		splitImageFolderLabel.setLocation(16, 90);
+		splitImageFolderLabel.setSize(splitImageFolderLabel.getPreferredSize());
+		splitImageFolderLabel.setBounds(90, 13, getStringWidth(splitImageFolderLabel), 16);
+		
+		centralWidget.add(splitImageFolderLabel);
+		
+		splitImageFolderLineEdit = new JTextField();
+		splitImageFolderLineEdit.setBackground(Color.GRAY);
+		splitImageFolderLineEdit.setForeground(Color.WHITE);
+		splitImageFolderLineEdit.setSelectedTextColor(Color.BLACK);
+		splitImageFolderLineEdit.setText("Select a folder -->");
+		splitImageFolderLineEdit.setBounds(new Rectangle(splitImageFolderLabel.getX() + splitImageFolderLabel.getWidth() + 1, 11, 247, 20));
+		splitImageFolderLineEdit.setEditable(false);
+		splitImageFolderLineEdit.setName("splitImageFolderLineEdit");
+		
+		centralWidget.add(splitImageFolderLineEdit);
+		
 		frame.setVisible(true);
+	}
+	
+	private int getStringWidth(JLabel label) {
+		return label.getFontMetrics(label.getFont()).stringWidth(label.getText());
+	}
+	
+	private int getStringWidth(JComponent component, String text) {
+		return component.getFontMetrics(component.getFont()).stringWidth(text);
 	}
 	
 }
