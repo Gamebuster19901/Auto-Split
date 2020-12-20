@@ -50,6 +50,7 @@ public class Main {
 	final JLabel similarityThresholdLabel;
 	final JSpinner similarityThresholdDoubleSpinBox;
 	final JButton startAutoSplitterButton;
+	final JButton resetButton;
 	
 	public static void main(String[] args) {}
 	
@@ -252,12 +253,25 @@ public class Main {
 		startAutoSplitterButton = new JButton();
 		startAutoSplitterButton.setText("Start Auto Splitter");
 		startAutoSplitterButton.setFont(fontMetrics.getFont());
-		startAutoSplitterButton.setBounds(506, 385, calculateButtonWidth(startAutoSplitterButton), 31);
+		startAutoSplitterButton.setBounds(506, 425, calculateButtonWidth(startAutoSplitterButton), 31);
 		startAutoSplitterButton.setFocusable(false);
 		startAutoSplitterButton.setName("startAutoSplitterButton");
 		
 		centralWidget.add(startAutoSplitterButton);
 		
+		/*
+		 * 
+		 * Reset Button
+		 * 
+		 */
+		resetButton = new JButton();
+		resetButton.setText("Reset");
+		resetButton.setFont(fontMetrics.getFont());
+		resetButton.setBounds(506, 385, calculateButtonWidth(startAutoSplitterButton), 31);
+		resetButton.setFocusable(false);
+		resetButton.setName("resetButton");
+		
+		centralWidget.add(resetButton);
 		
 		frame.setVisible(true);
 	}
