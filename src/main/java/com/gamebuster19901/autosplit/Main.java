@@ -8,6 +8,7 @@ import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -33,6 +34,7 @@ public class Main {
 	final JPanel centralWidget;
 	final JLabel splitImageFolderLabel;
 	final JTextField splitImageFolderLineEdit;
+	final JButton browseButton;
 	
 	private final Graphics graphics = new BufferedImage(1,1,BufferedImage.TYPE_INT_ARGB).getGraphics();
 	private final FontMetrics fontMetrics = graphics.getFontMetrics();
@@ -80,11 +82,19 @@ public class Main {
 		splitImageFolderLineEdit.setForeground(Color.WHITE);
 		splitImageFolderLineEdit.setSelectedTextColor(Color.BLACK);
 		splitImageFolderLineEdit.setText("Select a folder -->");
-		splitImageFolderLineEdit.setBounds(new Rectangle(splitImageFolderLabel.getX() + splitImageFolderLabel.getWidth() + 1, 11, 247, 20));
+		splitImageFolderLineEdit.setBounds(new Rectangle(rightOf(splitImageFolderLabel, 3), 11, 247, 20));
 		splitImageFolderLineEdit.setEditable(false);
 		splitImageFolderLineEdit.setName("splitImageFolderLineEdit");
 		
 		centralWidget.add(splitImageFolderLineEdit);
+		
+		browseButton = new JButton();
+		browseButton.setText("Browse");
+		browseButton.setFont(fontMetrics.getFont());
+		browseButton.setFocusable(false);
+		browseButton.setName("browseButton");
+		browseButton.setBounds(new Rectangle(rightOf(splitImageFolderLineEdit, 6), 9, calculateButtonWidth(browseButton), 24));
+		centralWidget.add(browseButton);
 		
 		frame.setVisible(true);
 	}
@@ -93,8 +103,20 @@ public class Main {
 		return label.getFontMetrics(label.getFont()).stringWidth(label.getText());
 	}
 	
+	private int calculateButtonWidth(JButton button) {
+		return button.getFontMetrics(button.getFont()).stringWidth(button.getText()) + (button.getBorder().getBorderInsets(button).left * 2);
+	}
+	
 	private int getStringWidth(JComponent component, String text) {
 		return component.getFontMetrics(component.getFont()).stringWidth(text);
+	}
+	
+	private int rightOf(JComponent component) {
+		return component.getX() + component.getWidth();
+	}
+	
+	private int rightOf(JComponent component, int spacing) {
+		return rightOf(component) + spacing;
 	}
 	
 }
