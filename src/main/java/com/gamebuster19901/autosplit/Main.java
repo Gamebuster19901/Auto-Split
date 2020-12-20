@@ -53,6 +53,7 @@ public class Main {
 	final GButton undoSplitButton;
 	final GButton skipSplitButton;
 	final GLabel pauseLabel;
+	final GButton maxFPSButton;
 	
 	public static void main(String[] args) {}
 	
@@ -278,6 +279,17 @@ public class Main {
 		pauseLabel.setBounds(row3column2 + 10, 420, 140, 16);
 		
 		centralWidget.add(pauseLabel);
+		
+		/*
+		 * 
+		 * Check FPS Button
+		 * 
+		 */
+		
+		maxFPSButton = new GButton("Max FPS", "maxFPSButton");
+		maxFPSButton.setBounds(5, 255, calculateButtonWidth(maxFPSButton), 21);
+		
+		centralWidget.add(maxFPSButton);
 		
 		/*
 		 * 
