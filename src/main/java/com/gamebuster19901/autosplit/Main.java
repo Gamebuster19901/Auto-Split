@@ -59,6 +59,9 @@ public class Main {
 	public Main() throws ClassNotFoundException, InstantiationException, IllegalAccessException, UnsupportedLookAndFeelException {
 		JFrame frame = new JFrame();
 		
+		int row3column2 = 240;
+		int row3column3 = 490;
+		
 		/*
 		 * 
 		 * Main Window
@@ -172,7 +175,7 @@ public class Main {
 		 */
 		
 		loopCheckBox = new JCheckBox(null, null, true);
-		loopCheckBox.setBounds(new Rectangle(500, 314, 121, 17));
+		loopCheckBox.setBounds(new Rectangle(row3column3 + 10, 314, 121, 17));
 		loopCheckBox.setName("loopCheckBox");
 		
 		centralWidget.add(loopCheckBox);
@@ -184,7 +187,7 @@ public class Main {
 		 */
 		
 		autoRestartOnResetCheckBox = new JCheckBox(null, null, true);
-		autoRestartOnResetCheckBox.setBounds(500, 344, 121, 17);
+		autoRestartOnResetCheckBox.setBounds(row3column3 + 10, 344, 121, 17);
 		autoRestartOnResetCheckBox.setName("autoRestartOnResetCheckBox");
 		
 		centralWidget.add(autoRestartOnResetCheckBox);
