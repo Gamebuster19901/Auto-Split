@@ -26,7 +26,6 @@ public class Main {
 		try {
 			INSTANCE = new Main();
 		} catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException e) {
-			// TODO Auto-generated catch block
 			throw new Error(e);
 		}
 	}
