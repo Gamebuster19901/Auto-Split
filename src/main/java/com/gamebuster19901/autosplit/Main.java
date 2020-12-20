@@ -32,6 +32,9 @@ public class Main {
 		}
 	}
 	
+	private final Graphics graphics = new BufferedImage(1,1,BufferedImage.TYPE_INT_ARGB).getGraphics();
+	private final FontMetrics fontMetrics = graphics.getFontMetrics();
+	
 	final JPanel centralWidget;
 	final JLabel splitImageFolderLabel;
 	final JTextField splitImageFolderLineEdit;
@@ -39,9 +42,6 @@ public class Main {
 	final JLabel xLabel;
 	final JLabel yLabel;
 	final JCheckBox liveImageCheckBox;
-	
-	private final Graphics graphics = new BufferedImage(1,1,BufferedImage.TYPE_INT_ARGB).getGraphics();
-	private final FontMetrics fontMetrics = graphics.getFontMetrics();
 	
 	public static void main(String[] args) {}
 	
