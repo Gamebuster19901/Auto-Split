@@ -267,6 +267,17 @@ public class Main {
 		
 		/*
 		 * 
+		 * Pause Label
+		 * 
+		 */
+		
+		pauseLabel = new GLabel("Pause", "pauseLabel");
+		pauseLabel.setBounds(row3column2 + 10, 420, 140, 16);
+		
+		centralWidget.add(pauseLabel);
+		
+		/*
+		 * 
 		 * Frame And Widget 
 		 * 
 		 */
