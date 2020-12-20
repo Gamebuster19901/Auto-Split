@@ -9,6 +9,7 @@ import java.awt.image.BufferedImage;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JCheckBox;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -37,6 +38,7 @@ public class Main {
 	final JButton browseButton;
 	final JLabel xLabel;
 	final JLabel yLabel;
+	final JCheckBox liveImageCheckBox;
 	
 	private final Graphics graphics = new BufferedImage(1,1,BufferedImage.TYPE_INT_ARGB).getGraphics();
 	private final FontMetrics fontMetrics = graphics.getFontMetrics();
@@ -148,6 +150,7 @@ public class Main {
 		 * Y Label
 		 * 
 		 */
+		
 		yLabel = new JLabel();
 		yLabel.setFont(fontMetrics.getFont());
 		yLabel.setText("Y");
@@ -155,6 +158,18 @@ public class Main {
 		yLabel.setName("xLabel");
 		
 		centralWidget.add(yLabel);
+		
+		/*
+		 * 
+		 * Live Image Check Box
+		 * 
+		 */
+		
+		liveImageCheckBox = new JCheckBox(null, null, true);
+		liveImageCheckBox.setBounds(new Rectangle(125, 253, 121, 17));
+		liveImageCheckBox.setName("liveImageCheckBox");
+		
+		centralWidget.add(liveImageCheckBox);
 		
 		frame.setVisible(true);
 	}
