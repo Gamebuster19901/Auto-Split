@@ -288,7 +288,7 @@ public class Main {
 		 */
 		
 		maxFPSButton = new GButton("Max FPS", "maxFPSButton");
-		maxFPSButton.setBounds(5, 255, calculateButtonWidth(maxFPSButton), 21);
+		maxFPSButton.setBounds(5, 225, calculateButtonWidth(maxFPSButton), 21);
 		
 		centralWidget.add(maxFPSButton);
 		
