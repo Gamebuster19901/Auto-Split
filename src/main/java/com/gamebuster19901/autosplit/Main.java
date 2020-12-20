@@ -42,6 +42,7 @@ public class Main {
 	final JLabel xLabel;
 	final JLabel yLabel;
 	final JCheckBox liveImageCheckBox;
+	final JCheckBox loopCheckBox;
 	
 	public static void main(String[] args) {}
 	
@@ -170,6 +171,18 @@ public class Main {
 		liveImageCheckBox.setName("liveImageCheckBox");
 		
 		centralWidget.add(liveImageCheckBox);
+		
+		/*
+		 * 
+		 * Loop Check Box
+		 * 
+		 */
+		
+		loopCheckBox = new JCheckBox(null, null, true);
+		loopCheckBox.setBounds(new Rectangle(500, 314, 121, 17));
+		loopCheckBox.setName("loopCheckBox");
+		
+		centralWidget.add(loopCheckBox);
 		
 		frame.setVisible(true);
 	}
