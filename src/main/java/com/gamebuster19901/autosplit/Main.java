@@ -24,7 +24,6 @@ import static javax.swing.JFrame.DISPOSE_ON_CLOSE;
 
 public class Main {
 
-	private static final Dimension MIN_SIZE = new Dimension(622, 490);
 	public static final Main INSTANCE;
 	static {
 		try {
@@ -66,9 +65,6 @@ public class Main {
 		UIManager.setLookAndFeel(UIManager.getCrossPlatformLookAndFeelClassName());
 		
 		frame.setName("mainWindow");
-		frame.setSize(MIN_SIZE);
-		frame.setMinimumSize(MIN_SIZE);
-		frame.setMaximumSize(MIN_SIZE); //TODO: See if this is necessary... This will be really small on 4k monitors
 		
 		try {
 			frame.setIconImage(new ImageIcon(Main.class.getResource("/icon.png")).getImage());
@@ -87,7 +83,6 @@ public class Main {
 		 */
 		
 		centralWidget = new JPanel();
-		centralWidget.setSize(MIN_SIZE);
 		centralWidget.setName("centralWidget");
 		centralWidget.setLayout(null);
 		
@@ -273,6 +268,12 @@ public class Main {
 		
 		centralWidget.add(resetButton);
 		
+		Dimension MIN_SIZE = new Dimension(rightOf(startAutoSplitterButton, 16), below(startAutoSplitterButton, 16));		
+		centralWidget.setSize(MIN_SIZE);
+		frame.setSize(MIN_SIZE);
+		frame.setMinimumSize(MIN_SIZE);
+		frame.setMaximumSize(MIN_SIZE); //TODO: See if this is necessary... This will be really small on 4k monitors
+		
 		frame.setVisible(true);
 	}
 	
@@ -294,6 +295,14 @@ public class Main {
 	
 	private int rightOf(JComponent component, int spacing) {
 		return rightOf(component) + spacing;
+	}
+	
+	private int below(JComponent component) {
+		return component.getY() + component.getHeight() * 2 + component.getBorder().getBorderInsets(component).bottom + 1;
+	}
+	
+	private int below(JComponent component, int spacing) {
+		return below(component) + spacing;
 	}
 	
 }
