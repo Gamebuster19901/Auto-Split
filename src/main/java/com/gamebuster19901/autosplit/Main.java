@@ -65,6 +65,7 @@ public class Main {
 		UIManager.setLookAndFeel(UIManager.getCrossPlatformLookAndFeelClassName());
 		
 		frame.setName("mainWindow");
+		frame.setTitle("Auto Split (Java)");
 		
 		try {
 			frame.setIconImage(new ImageIcon(Main.class.getResource("/icon.png")).getImage());
