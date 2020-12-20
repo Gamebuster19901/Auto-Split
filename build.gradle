@@ -11,11 +11,19 @@ dependencies {
 
 }
 
+sourceSets {
+    main {
+        resources {
+            srcDirs "src/main/resources"
+        }
+    }
+}
+
 jar {
     manifest {
         attributes(
             'Class-Path': configurations.compile.collect { it.getName() }.join(' '),
-            'Main-Class': 'com.gamebuster19901.autosplit.AutoSplit'
+            'Main-Class': 'com.gamebuster19901.autosplit.Main'
         )
     }
     from {
