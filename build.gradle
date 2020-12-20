@@ -11,6 +11,14 @@ dependencies {
 
 }
 
+sourceSets {
+    main {
+        resources {
+            srcDirs "src/main/resources"
+        }
+    }
+}
+
 jar {
     manifest {
         attributes(
