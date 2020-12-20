@@ -46,7 +46,7 @@ public class Main {
 		
 		UIManager.setLookAndFeel(UIManager.getCrossPlatformLookAndFeelClassName());
 		
-		frame.setName("MainWindow");
+		frame.setName("mainWindow");
 		frame.setSize(MIN_SIZE);
 		frame.setMinimumSize(MIN_SIZE);
 		frame.setMaximumSize(MIN_SIZE); //TODO: See if this is necessary... This will be really small on 4k monitors
