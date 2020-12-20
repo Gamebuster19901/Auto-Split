@@ -43,6 +43,7 @@ public class Main {
 	final JLabel yLabel;
 	final JCheckBox liveImageCheckBox;
 	final JCheckBox loopCheckBox;
+	final JCheckBox autoRestartOnResetCheckBox;
 	
 	public static void main(String[] args) {}
 	
@@ -183,6 +184,18 @@ public class Main {
 		loopCheckBox.setName("loopCheckBox");
 		
 		centralWidget.add(loopCheckBox);
+		
+		/*
+		 * 
+		 * Auto Restart on Reset Check Box
+		 * 
+		 */
+		
+		autoRestartOnResetCheckBox = new JCheckBox(null, null, true);
+		autoRestartOnResetCheckBox.setBounds(500, 344, 121, 17);
+		autoRestartOnResetCheckBox.setName("autoRestartOnResetCheckBox");
+		
+		centralWidget.add(autoRestartOnResetCheckBox);
 		
 		frame.setVisible(true);
 	}
