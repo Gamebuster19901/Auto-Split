@@ -55,6 +55,7 @@ public class Main {
 	final GLabel pauseLabel;
 	final GButton maxFPSButton;
 	final GLabel fpsLabel;
+	final JCheckBox showLiveSimilarityCheckBox;
 	
 	public static void main(String[] args) {}
 	
@@ -302,6 +303,18 @@ public class Main {
 		fpsLabel.setBounds(82, 225, getStringWidth(fpsLabel), 20);
 		
 		centralWidget.add(fpsLabel);
+		
+		/*
+		 * 
+		 * Show Live Similarity Checkbox
+		 * 
+		 */
+		
+		showLiveSimilarityCheckBox = new JCheckBox(null, null, true);
+		showLiveSimilarityCheckBox.setBounds(10, 339, 111, 17);
+		showLiveSimilarityCheckBox.setName("showLiveSimilarityCheckBox");
+		
+		centralWidget.add(showLiveSimilarityCheckBox);
 		
 		/*
 		 * 
