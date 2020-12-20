@@ -14,7 +14,9 @@ import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JSpinner;
 import javax.swing.JTextField;
+import javax.swing.SpinnerNumberModel;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
@@ -44,6 +46,9 @@ public class Main {
 	final JCheckBox liveImageCheckBox;
 	final JCheckBox loopCheckBox;
 	final JCheckBox autoRestartOnResetCheckBox;
+	final JButton selectRegionButton;
+	final JLabel similarityThresholdLabel;
+	final JSpinner similarityThresholdDoubleSpinBox;
 	
 	public static void main(String[] args) {}
 	
@@ -196,6 +201,47 @@ public class Main {
 		autoRestartOnResetCheckBox.setName("autoRestartOnResetCheckBox");
 		
 		centralWidget.add(autoRestartOnResetCheckBox);
+		
+		/*
+		 * 
+		 * Select Region Button
+		 * 
+		 */
+		
+		selectRegionButton = new JButton();
+		selectRegionButton.setText("Select Region");
+		selectRegionButton.setFont(fontMetrics.getFont());
+		selectRegionButton.setBounds(new Rectangle(5, 67, calculateButtonWidth(selectRegionButton), 23));
+		selectRegionButton.setFocusable(false);
+		selectRegionButton.setName("selectRegionButton");
+		
+		centralWidget.add(selectRegionButton);
+		
+		/*
+		 * 
+		 * Similarity Threshold Label
+		 * 
+		 */
+		
+		similarityThresholdLabel = new JLabel();
+		similarityThresholdLabel.setText("Similarity Threshold");
+		similarityThresholdLabel.setFont(fontMetrics.getFont());
+		similarityThresholdLabel.setBounds(new Rectangle(10, 378, getStringWidth(similarityThresholdLabel), 16));
+		similarityThresholdLabel.setName("similarityThresholdLabel");
+		
+		centralWidget.add(similarityThresholdLabel);
+		
+		/*
+		 * 
+		 * Similarity Threshold Double Spin Box
+		 * 
+		 */
+		
+		similarityThresholdDoubleSpinBox = new JSpinner(new SpinnerNumberModel(0.9d, 0d, 1d, 0.05d));
+		similarityThresholdDoubleSpinBox.setBounds(new Rectangle(160, 383, 64, 22));
+		similarityThresholdDoubleSpinBox.setName("similarityThresholdDoubleSpinBox");
+		
+		centralWidget.add(similarityThresholdDoubleSpinBox);
 		
 		frame.setVisible(true);
 	}
