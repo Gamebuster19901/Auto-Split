@@ -35,6 +35,8 @@ public class Main {
 	final JLabel splitImageFolderLabel;
 	final JTextField splitImageFolderLineEdit;
 	final JButton browseButton;
+	final JLabel xLabel;
+	final JLabel yLabel;
 	
 	private final Graphics graphics = new BufferedImage(1,1,BufferedImage.TYPE_INT_ARGB).getGraphics();
 	private final FontMetrics fontMetrics = graphics.getFontMetrics();
@@ -94,7 +96,24 @@ public class Main {
 		browseButton.setFocusable(false);
 		browseButton.setName("browseButton");
 		browseButton.setBounds(new Rectangle(rightOf(splitImageFolderLineEdit, 6), 9, calculateButtonWidth(browseButton), 24));
+
 		centralWidget.add(browseButton);
+		
+		xLabel = new JLabel();
+		xLabel.setFont(fontMetrics.getFont());
+		xLabel.setText("X");
+		xLabel.setBounds(25, 139, getStringWidth(xLabel), 16);
+		xLabel.setName("xLabel");
+		
+		centralWidget.add(xLabel);
+		
+		yLabel = new JLabel();
+		yLabel.setFont(fontMetrics.getFont());
+		yLabel.setText("Y");
+		yLabel.setBounds(81, 139, getStringWidth(yLabel), 16);
+		yLabel.setName("xLabel");
+		
+		centralWidget.add(yLabel);
 		
 		frame.setVisible(true);
 	}
