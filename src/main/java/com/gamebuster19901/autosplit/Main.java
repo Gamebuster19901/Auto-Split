@@ -341,7 +341,6 @@ public class Main {
 		
 		liveSimilarityLabel = new GLabel("-.--", "liveSimilarityLabel");
 		liveSimilarityLabel.setBounds(160, showLiveSimilarityCheckBox.getY(), 46, 13);
-		liveSimilarityLabel.setName("liveSimilarityLabel");
 		
 		centralWidget.add(liveSimilarityLabel);
 		
@@ -353,7 +352,6 @@ public class Main {
 		
 		highestSimilarityLabel = new GLabel("-.--", "highestSimilarityLabel");
 		highestSimilarityLabel.setBounds(160, showHighestSimilarityCheckBox.getY(), 46, 13);
-		highestSimilarityLabel.setName("highestSimilarityLabel");
 		
 		centralWidget.add(highestSimilarityLabel);
 		
@@ -365,7 +363,6 @@ public class Main {
 		
 		splitLabel = new GLabel("Start/Split", "splitLabel");
 		splitLabel.setBounds(row3column2, 317, getStringWidth(splitLabel), 16);
-		splitLabel.setName("splitLabel");
 		
 		centralWidget.add(splitLabel);
 		
@@ -377,7 +374,6 @@ public class Main {
 		
 		resetLabel = new GLabel("Reset", "resetLabel");
 		resetLabel.setBounds(row3column2, below(splitLabel, 2), getStringWidth(resetLabel), 16);
-		resetLabel.setName("resetLabel");
 		
 		centralWidget.add(resetLabel);
 		
