@@ -61,6 +61,7 @@ public class Main {
 	final GLabel highestSimilarityLabel;
 	final GLabel splitLabel;
 	final GLabel resetLabel;
+	final GLabel skipSplitLabel;
 	
 	public static void main(String[] args) {}
 	
@@ -376,6 +377,18 @@ public class Main {
 		resetLabel.setBounds(row3column2, below(splitLabel, 2), getStringWidth(resetLabel), 16);
 		
 		centralWidget.add(resetLabel);
+		
+		/*
+		 * 
+		 * Skip Split Label
+		 * 
+		 */
+		
+		skipSplitLabel = new GLabel("Skip Split", "skipSplitLabel");
+		skipSplitLabel.setBounds(row3column2, below(resetLabel, 2), getStringWidth(skipSplitLabel), 16);
+		
+		centralWidget.add(skipSplitLabel);
+		
 		
 		/*
 		 * 
