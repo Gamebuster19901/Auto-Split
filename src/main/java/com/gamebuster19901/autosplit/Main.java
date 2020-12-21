@@ -57,6 +57,7 @@ public class Main {
 	final GLabel fpsLabel;
 	final JCheckBox showLiveSimilarityCheckBox;
 	final JCheckBox showHighestSimilarityCheckBox;
+	final GLabel liveSimilarityLabel;
 	
 	public static void main(String[] args) {}
 	
@@ -328,6 +329,18 @@ public class Main {
 		showHighestSimilarityCheckBox.setName("showHighestSimilarityCheckBox");
 		
 		centralWidget.add(showHighestSimilarityCheckBox);
+		
+		/*
+		 * 
+		 * Live Similarity Label
+		 * 
+		 */
+		
+		liveSimilarityLabel = new GLabel("-.--", "liveSimilarityLabel");
+		liveSimilarityLabel.setBounds(160, showLiveSimilarityCheckBox.getY(), 46, 13);
+		liveSimilarityLabel.setName("liveSimilarityLabel");
+		
+		centralWidget.add(liveSimilarityLabel);
 		
 		/*
 		 * 
