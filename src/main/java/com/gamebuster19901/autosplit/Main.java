@@ -71,7 +71,7 @@ public class Main {
 		
 		int row3column2 = 250;
 		int row3column3 = 490;
-		int row3column2padding = 2;
+		int row3column2padding = 10;
 		
 		/*
 		 * 
