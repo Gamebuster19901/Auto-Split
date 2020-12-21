@@ -1,6 +1,5 @@
 package com.gamebuster19901.autosplit;
 
-import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Rectangle;
 
@@ -12,7 +11,6 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JSpinner;
-import javax.swing.JTextField;
 import javax.swing.SpinnerNumberModel;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
@@ -20,6 +18,7 @@ import javax.swing.UnsupportedLookAndFeelException;
 import com.gamebuster19901.autosplit.swing.FontSettings;
 import com.gamebuster19901.autosplit.swing.GButton;
 import com.gamebuster19901.autosplit.swing.GLabel;
+import com.gamebuster19901.autosplit.swing.GTextField;
 
 import static javax.swing.JFrame.DISPOSE_ON_CLOSE;
 
@@ -38,7 +37,7 @@ public class Main {
 	
 	final JPanel centralWidget;
 	final GLabel splitImageFolderLabel;
-	final JTextField splitImageFolderLineEdit;
+	final GTextField splitImageFolderLineEdit;
 	final GButton browseButton;
 	final GLabel xLabel;
 	final GLabel yLabel;
@@ -127,14 +126,8 @@ public class Main {
 		 * 
 		 */
 		
-		splitImageFolderLineEdit = new JTextField();
-		splitImageFolderLineEdit.setBackground(Color.GRAY);
-		splitImageFolderLineEdit.setForeground(Color.WHITE);
-		splitImageFolderLineEdit.setSelectedTextColor(Color.BLACK);
-		splitImageFolderLineEdit.setText("Select a folder -->");
+		splitImageFolderLineEdit = new GTextField("Select a folder -->", false, "splitImageFolderLineEdit");
 		splitImageFolderLineEdit.setBounds(new Rectangle(rightOf(splitImageFolderLabel, 3), 11, 247, 20));
-		splitImageFolderLineEdit.setEditable(false);
-		splitImageFolderLineEdit.setName("splitImageFolderLineEdit");
 		
 		centralWidget.add(splitImageFolderLineEdit);
 		
