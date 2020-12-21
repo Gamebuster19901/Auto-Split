@@ -56,6 +56,7 @@ public class Main {
 	final GButton maxFPSButton;
 	final GLabel fpsLabel;
 	final JCheckBox showLiveSimilarityCheckBox;
+	final JCheckBox showHighestSimilarityCheckBox;
 	
 	public static void main(String[] args) {}
 	
@@ -306,7 +307,7 @@ public class Main {
 		
 		/*
 		 * 
-		 * Show Live Similarity Checkbox
+		 * Show Live Similarity Check Box
 		 * 
 		 */
 		
@@ -315,6 +316,18 @@ public class Main {
 		showLiveSimilarityCheckBox.setName("showLiveSimilarityCheckBox");
 		
 		centralWidget.add(showLiveSimilarityCheckBox);
+		
+		/*
+		 * 
+		 * Show Highest Similarity Check Box
+		 * 
+		 */
+		
+		showHighestSimilarityCheckBox = new JCheckBox(null, null, true);
+		showHighestSimilarityCheckBox.setBounds(10, below(showLiveSimilarityCheckBox), 131, 17);
+		showHighestSimilarityCheckBox.setName("showHighestSimilarityCheckBox");
+		
+		centralWidget.add(showHighestSimilarityCheckBox);
 		
 		/*
 		 * 
@@ -352,7 +365,12 @@ public class Main {
 	}
 	
 	private int below(JComponent component) {
-		return component.getY() + component.getHeight() * 2 + component.getBorder().getBorderInsets(component).bottom + 1;
+		if(component instanceof JButton) {
+			return component.getY() + component.getHeight() * 2 + component.getBorder().getBorderInsets(component).bottom + 1;
+		}
+		else {
+			return component.getY() + component.getHeight();
+		}
 	}
 	
 	private int below(JComponent component, int spacing) {
