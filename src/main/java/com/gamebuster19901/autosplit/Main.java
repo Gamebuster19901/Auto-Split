@@ -15,6 +15,7 @@ import javax.swing.SpinnerNumberModel;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
+import com.gamebuster19901.autosplit.input.SpecialKey;
 import com.gamebuster19901.autosplit.swing.FontSettings;
 import com.gamebuster19901.autosplit.swing.GButton;
 import com.gamebuster19901.autosplit.swing.GLabel;
@@ -62,8 +63,8 @@ public class Main {
 	final GLabel skipSplitLabel;
 	final GLabel undoSplitLabel;
 	final GLabel pauseLabel;
-	
 	final GLabel pauseTimeAfterSplitLabel;
+	final GTextField splitLineEdit;
 	
 	public static void main(String[] args) {}
 	
@@ -350,7 +351,7 @@ public class Main {
 		 * 
 		 */
 		
-		splitLabel = new GLabel("Start/Split", "splitLabel");
+		splitLabel = new GLabel("Start / Split", "splitLabel");
 		splitLabel.setBounds(row3column2, 317, getStringWidth(splitLabel), 16);
 		
 		centralWidget.add(splitLabel);
@@ -409,6 +410,17 @@ public class Main {
 		pauseTimeAfterSplitLabel.setBounds(column1, 420, getStringWidth(pauseTimeAfterSplitLabel), 16);
 		
 		centralWidget.add(pauseTimeAfterSplitLabel);
+		
+		/*
+		 * 
+		 * Split Line Edit
+		 * 
+		 */
+		
+		splitLineEdit = new GTextField(SpecialKey.NUM_1.toString(), false, "splitLineEdit");
+		splitLineEdit.setBounds(rightOf(splitLabel, 12), splitLabel.getY(), 81, 20);
+		
+		centralWidget.add(splitLineEdit);
 		
 		/*
 		 * 
