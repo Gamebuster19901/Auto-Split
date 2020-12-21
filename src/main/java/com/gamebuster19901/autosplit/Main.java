@@ -59,13 +59,14 @@ public class Main {
 	final JCheckBox showHighestSimilarityCheckBox;
 	final GLabel liveSimilarityLabel;
 	final GLabel highestSimilarityLabel;
+	final GLabel splitLabel;
 	
 	public static void main(String[] args) {}
 	
 	public Main() throws ClassNotFoundException, InstantiationException, IllegalAccessException, UnsupportedLookAndFeelException {
 		JFrame frame = new JFrame();
 		
-		int row3column2 = 240;
+		int row3column2 = 250;
 		int row3column3 = 490;
 		
 		/*
@@ -281,7 +282,7 @@ public class Main {
 		 */
 		
 		pauseLabel = new GLabel("Pause", "pauseLabel");
-		pauseLabel.setBounds(row3column2 + 10, 420, 140, 16);
+		pauseLabel.setBounds(row3column2, 420, 140, 16);
 		
 		centralWidget.add(pauseLabel);
 		
@@ -354,6 +355,18 @@ public class Main {
 		highestSimilarityLabel.setName("highestSimilarityLabel");
 		
 		centralWidget.add(highestSimilarityLabel);
+		
+		/*
+		 * 
+		 * Split Label
+		 * 
+		 */
+		
+		splitLabel = new GLabel("Start/Split", "splitLabel");
+		splitLabel.setBounds(row3column2, 317, getStringWidth(splitLabel), 16);
+		splitLabel.setName("splitLabel");
+		
+		centralWidget.add(splitLabel);
 		
 		/*
 		 * 
