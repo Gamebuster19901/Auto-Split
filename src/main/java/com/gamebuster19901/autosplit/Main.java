@@ -69,6 +69,8 @@ public class Main {
 	public Main() throws ClassNotFoundException, InstantiationException, IllegalAccessException, UnsupportedLookAndFeelException {
 		JFrame frame = new JFrame();
 		
+		int column1 = 5;
+		
 		int row3column2 = 250;
 		int row3column3 = 490;
 		int row3column2padding = 10;
@@ -210,7 +212,7 @@ public class Main {
 		 */
 		
 		selectRegionButton = new GButton("Select Region", "selectRegionButton");
-		selectRegionButton.setBounds(new Rectangle(5, 67, calculateButtonWidth(selectRegionButton), 23));
+		selectRegionButton.setBounds(new Rectangle(column1, 67, calculateButtonWidth(selectRegionButton), 23));
 		
 		centralWidget.add(selectRegionButton);
 		
@@ -221,7 +223,7 @@ public class Main {
 		 */
 		
 		similarityThresholdLabel = new GLabel("Similarity Threshold", "similarityThresholdLabel");
-		similarityThresholdLabel.setBounds(new Rectangle(10, 378, getStringWidth(similarityThresholdLabel), 16));
+		similarityThresholdLabel.setBounds(new Rectangle(column1, 378, getStringWidth(similarityThresholdLabel), 16));
 		
 		centralWidget.add(similarityThresholdLabel);
 		
@@ -286,7 +288,7 @@ public class Main {
 		 */
 		
 		maxFPSButton = new GButton("Max FPS", "maxFPSButton");
-		maxFPSButton.setBounds(5, 225, calculateButtonWidth(maxFPSButton), 21);
+		maxFPSButton.setBounds(column1, 225, calculateButtonWidth(maxFPSButton), 21);
 		
 		centralWidget.add(maxFPSButton);
 		
@@ -308,7 +310,7 @@ public class Main {
 		 */
 		
 		showLiveSimilarityCheckBox = new JCheckBox(null, null, true);
-		showLiveSimilarityCheckBox.setBounds(10, 339, 111, 17);
+		showLiveSimilarityCheckBox.setBounds(column1, 339, 111, 17);
 		showLiveSimilarityCheckBox.setName("showLiveSimilarityCheckBox");
 		
 		centralWidget.add(showLiveSimilarityCheckBox);
@@ -320,7 +322,7 @@ public class Main {
 		 */
 		
 		showHighestSimilarityCheckBox = new JCheckBox(null, null, true);
-		showHighestSimilarityCheckBox.setBounds(10, below(showLiveSimilarityCheckBox), 131, 17);
+		showHighestSimilarityCheckBox.setBounds(column1, below(showLiveSimilarityCheckBox), 131, 17);
 		showHighestSimilarityCheckBox.setName("showHighestSimilarityCheckBox");
 		
 		centralWidget.add(showHighestSimilarityCheckBox);
