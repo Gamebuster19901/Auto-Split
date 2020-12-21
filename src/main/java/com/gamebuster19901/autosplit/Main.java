@@ -60,6 +60,7 @@ public class Main {
 	final GLabel liveSimilarityLabel;
 	final GLabel highestSimilarityLabel;
 	final GLabel splitLabel;
+	final GLabel resetLabel;
 	
 	public static void main(String[] args) {}
 	
@@ -367,6 +368,18 @@ public class Main {
 		splitLabel.setName("splitLabel");
 		
 		centralWidget.add(splitLabel);
+		
+		/*
+		 * 
+		 * Reset Label
+		 * 
+		 */
+		
+		resetLabel = new GLabel("Reset", "resetLabel");
+		resetLabel.setBounds(row3column2, below(splitLabel, 2), getStringWidth(resetLabel), 16);
+		resetLabel.setName("resetLabel");
+		
+		centralWidget.add(resetLabel);
 		
 		/*
 		 * 
