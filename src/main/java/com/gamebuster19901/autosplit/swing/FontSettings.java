@@ -3,7 +3,9 @@ package com.gamebuster19901.autosplit.swing;
 import java.awt.Font;
 import java.awt.FontMetrics;
 import java.awt.Graphics;
+import java.awt.font.TextAttribute;
 import java.awt.image.BufferedImage;
+import java.util.HashMap;
 
 public class FontSettings {
 
@@ -11,6 +13,9 @@ public class FontSettings {
 	
 	public FontSettings() {
 		this(new BufferedImage(1,1,BufferedImage.TYPE_INT_ARGB).getGraphics());
+		HashMap<TextAttribute, Object> attributes = new HashMap<TextAttribute, Object>();
+		attributes.put(TextAttribute.TRACKING, -0.09);
+		graphics.setFont(getFont().deriveFont(attributes));
 	}
 	
 	public FontSettings(Graphics graphics) {

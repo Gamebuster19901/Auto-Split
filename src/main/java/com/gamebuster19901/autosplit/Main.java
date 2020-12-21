@@ -422,7 +422,7 @@ public class Main {
 	}
 	
 	private int calculateButtonWidth(JButton button) {
-		return button.getFontMetrics(button.getFont()).stringWidth(button.getText()) + (button.getBorder().getBorderInsets(button).left * 2);
+		return button.getFontMetrics(button.getFont()).stringWidth(button.getText()) + (button.getBorder().getBorderInsets(button).left * 2) + 12;
 	}
 	
 	private int getStringWidth(JComponent component, String text) {
