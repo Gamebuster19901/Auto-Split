@@ -62,6 +62,7 @@ public class Main {
 	final GLabel splitLabel;
 	final GLabel resetLabel;
 	final GLabel skipSplitLabel;
+	final GLabel undoSplitLabel;
 	
 	public static void main(String[] args) {}
 	
@@ -70,6 +71,7 @@ public class Main {
 		
 		int row3column2 = 250;
 		int row3column3 = 490;
+		int row3column2padding = 2;
 		
 		/*
 		 * 
@@ -374,7 +376,7 @@ public class Main {
 		 */
 		
 		resetLabel = new GLabel("Reset", "resetLabel");
-		resetLabel.setBounds(row3column2, below(splitLabel, 2), getStringWidth(resetLabel), 16);
+		resetLabel.setBounds(row3column2, below(splitLabel, row3column2padding), getStringWidth(resetLabel), 16);
 		
 		centralWidget.add(resetLabel);
 		
@@ -385,10 +387,20 @@ public class Main {
 		 */
 		
 		skipSplitLabel = new GLabel("Skip Split", "skipSplitLabel");
-		skipSplitLabel.setBounds(row3column2, below(resetLabel, 2), getStringWidth(skipSplitLabel), 16);
+		skipSplitLabel.setBounds(row3column2, below(resetLabel, row3column2padding), getStringWidth(skipSplitLabel), 16);
 		
 		centralWidget.add(skipSplitLabel);
 		
+		/*
+		 * 
+		 * Undo Split Label
+		 * 
+		 */
+		
+		undoSplitLabel = new GLabel("Undo Split", "undoSplitLabel");
+		undoSplitLabel.setBounds(row3column2, below(skipSplitLabel, row3column2padding), getStringWidth(undoSplitLabel), 16);
+		
+		centralWidget.add(undoSplitLabel);
 		
 		/*
 		 * 
