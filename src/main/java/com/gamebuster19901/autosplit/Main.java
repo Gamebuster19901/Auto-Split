@@ -64,6 +64,8 @@ public class Main {
 	final GLabel undoSplitLabel;
 	final GLabel pauseLabel;
 	
+	final GLabel pauseTimeAfterSplitLabel;
+	
 	public static void main(String[] args) {}
 	
 	public Main() throws ClassNotFoundException, InstantiationException, IllegalAccessException, UnsupportedLookAndFeelException {
@@ -403,6 +405,17 @@ public class Main {
 		pauseLabel.setBounds(row3column2, below(undoSplitLabel, row3column2padding), getStringWidth(pauseLabel), 16);
 		
 		centralWidget.add(pauseLabel);
+		
+		/*
+		 * 
+		 * Pause Time After Split Label
+		 * 
+		 */
+		
+		pauseTimeAfterSplitLabel = new GLabel("Pause time after split (sec)", "pauseTimeAfterSplitLabel");
+		pauseTimeAfterSplitLabel.setBounds(column1, 420, getStringWidth(pauseTimeAfterSplitLabel), 16);
+		
+		centralWidget.add(pauseTimeAfterSplitLabel);
 		
 		/*
 		 * 
