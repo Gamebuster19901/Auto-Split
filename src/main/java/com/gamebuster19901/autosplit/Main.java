@@ -52,7 +52,6 @@ public class Main {
 	final GButton resetButton;
 	final GButton undoSplitButton;
 	final GButton skipSplitButton;
-	final GLabel pauseLabel;
 	final GButton maxFPSButton;
 	final GLabel fpsLabel;
 	final JCheckBox showLiveSimilarityCheckBox;
@@ -63,6 +62,7 @@ public class Main {
 	final GLabel resetLabel;
 	final GLabel skipSplitLabel;
 	final GLabel undoSplitLabel;
+	final GLabel pauseLabel;
 	
 	public static void main(String[] args) {}
 	
@@ -281,17 +281,6 @@ public class Main {
 		
 		/*
 		 * 
-		 * Pause Label
-		 * 
-		 */
-		
-		pauseLabel = new GLabel("Pause", "pauseLabel");
-		pauseLabel.setBounds(row3column2, 420, 140, 16);
-		
-		centralWidget.add(pauseLabel);
-		
-		/*
-		 * 
 		 * Check FPS Button
 		 * 
 		 */
@@ -401,6 +390,17 @@ public class Main {
 		undoSplitLabel.setBounds(row3column2, below(skipSplitLabel, row3column2padding), getStringWidth(undoSplitLabel), 16);
 		
 		centralWidget.add(undoSplitLabel);
+		
+		/*
+		 * 
+		 * Pause Label
+		 * 
+		 */
+		
+		pauseLabel = new GLabel("Pause", "pauseLabel");
+		pauseLabel.setBounds(row3column2, below(undoSplitLabel, row3column2padding), getStringWidth(pauseLabel), 16);
+		
+		centralWidget.add(pauseLabel);
 		
 		/*
 		 * 
