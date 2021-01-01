@@ -18,7 +18,9 @@ import javax.swing.UnsupportedLookAndFeelException;
 import com.gamebuster19901.autosplit.input.SpecialKey;
 import com.gamebuster19901.autosplit.swing.FontSettings;
 import com.gamebuster19901.autosplit.swing.GButton;
+import com.gamebuster19901.autosplit.swing.GImagePanel;
 import com.gamebuster19901.autosplit.swing.GLabel;
+import com.gamebuster19901.autosplit.swing.GLine2D;
 import com.gamebuster19901.autosplit.swing.GTextField;
 
 import static javax.swing.JFrame.DISPOSE_ON_CLOSE;
@@ -75,6 +77,8 @@ public class Main {
 	final GButton setUndoSplitHotKeyButton;
 	final GButton setPauseHotKeyButton;
 	final GLabel timerGlobalHotKeysLabel;
+	final GImagePanel liveImage;
+	final GImagePanel currentSplitImage;
 	
 	public static void main(String[] args) {}
 	
@@ -542,6 +546,26 @@ public class Main {
 		
 		centralWidget.add(timerGlobalHotKeysLabel);
 		
+		/*
+		 * 
+		 * Live Image
+		 * 
+		 */
+		
+		liveImage = new GImagePanel();
+		liveImage.setBounds(111, 69, 249, 180);
+		
+		centralWidget.add(liveImage);
+		
+		/*
+		 * 
+		 * Current Split Image
+		 * 
+		 */
+		currentSplitImage = new GImagePanel();
+		currentSplitImage.setBounds(rightOf(liveImage, 6), liveImage.getY(), liveImage.getWidth(), liveImage.getHeight());
+		
+		centralWidget.add(currentSplitImage);
 		/*
 		 * 
 		 * Frame And Widget 
