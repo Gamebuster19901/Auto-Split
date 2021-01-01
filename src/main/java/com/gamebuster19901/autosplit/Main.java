@@ -69,6 +69,11 @@ public class Main {
 	final GTextField skipSplitLineEdit;
 	final GTextField resetLineEdit;
 	final GTextField pauseHotKeyLineEdit;
+	final GButton setSplitHotKeyButton;
+	final GButton setResetHotKeyButton;
+	final GButton setSkipSplitHotKeyButton;
+	final GButton setUndoSplitHotKeyButton;
+	final GButton setPauseHotKeyButton;
 	
 	public static void main(String[] args) {}
 	
@@ -469,6 +474,61 @@ public class Main {
 		pauseHotKeyLineEdit.setBounds(splitLineEdit.getX(), pauseLabel.getY(), 81, 20);
 		
 		centralWidget.add(pauseHotKeyLineEdit);
+		
+		/*
+		 * 
+		 * Set Split Hot Key Button
+		 * 
+		 */
+		
+		setSplitHotKeyButton = new GButton("Set Hotkey", "setSplitHotKeyButton");
+		setSplitHotKeyButton.setBounds(rightOf(splitLineEdit, 5), splitLineEdit.getY(), 81, 21);
+		
+		centralWidget.add(setSplitHotKeyButton);
+		
+		/*
+		 * 
+		 * Set Reset Hot Key Button
+		 * 
+		 */
+		
+		setResetHotKeyButton = new GButton("Set Hotkey", "setResetHotKeyButton");
+		setResetHotKeyButton.setBounds(setSplitHotKeyButton.getX(), resetLineEdit.getY(), 81, 21);
+		
+		centralWidget.add(setResetHotKeyButton);
+		
+		/*
+		 * 
+		 * Set Skip Split Hot Key Button
+		 * 
+		 */
+		
+		setSkipSplitHotKeyButton = new GButton("Set Hotkey", "setSkipSplitHotKeyButton");
+		setSkipSplitHotKeyButton.setBounds(setSplitHotKeyButton.getX(), skipSplitLineEdit.getY(), 81, 21);
+		
+		centralWidget.add(setSkipSplitHotKeyButton);
+		
+		/*
+		 * 
+		 * Set Undo Split Hot Key Button
+		 * 
+		 */
+		
+		setUndoSplitHotKeyButton = new GButton("Set Hotkey", "setUndoSplitHotKeyButton");
+		setUndoSplitHotKeyButton.setBounds(setSplitHotKeyButton.getX(), undoSplitLineEdit.getY(), 81, 21);
+		
+		centralWidget.add(setUndoSplitHotKeyButton);
+		
+		/*
+		 * 
+		 * Set Puase Hot Key Button
+		 * 
+		 */
+		
+		setPauseHotKeyButton = new GButton("Set Hotkey", "setPauseHotKeyButton");
+		setPauseHotKeyButton.setBounds(setSplitHotKeyButton.getX(), pauseHotKeyLineEdit.getY(), 81, 21);
+		
+		centralWidget.add(setPauseHotKeyButton);
 		
 		/*
 		 * 
