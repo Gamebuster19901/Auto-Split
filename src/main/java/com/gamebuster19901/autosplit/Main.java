@@ -20,7 +20,6 @@ import com.gamebuster19901.autosplit.swing.FontSettings;
 import com.gamebuster19901.autosplit.swing.GButton;
 import com.gamebuster19901.autosplit.swing.GImagePanel;
 import com.gamebuster19901.autosplit.swing.GLabel;
-import com.gamebuster19901.autosplit.swing.GLine2D;
 import com.gamebuster19901.autosplit.swing.GTextField;
 
 import static javax.swing.JFrame.DISPOSE_ON_CLOSE;
