@@ -65,6 +65,10 @@ public class Main {
 	final GLabel pauseLabel;
 	final GLabel pauseTimeAfterSplitLabel;
 	final GTextField splitLineEdit;
+	final GTextField undoSplitLineEdit;
+	final GTextField skipSplitLineEdit;
+	final GTextField resetLineEdit;
+	final GTextField pauseHotKeyLineEdit;
 	
 	public static void main(String[] args) {}
 	
@@ -421,6 +425,50 @@ public class Main {
 		splitLineEdit.setBounds(rightOf(splitLabel, 12), splitLabel.getY(), 81, 20);
 		
 		centralWidget.add(splitLineEdit);
+		
+		/*
+		 * 
+		 * Undo Split Line Edit
+		 * 
+		 */
+		
+		undoSplitLineEdit = new GTextField(SpecialKey.NUM_8.toString(), false, "undoSplitLineEdit");
+		undoSplitLineEdit.setBounds(splitLineEdit.getX(), undoSplitLabel.getY(), 81, 20);
+		
+		centralWidget.add(undoSplitLineEdit);
+		
+		/*
+		 * 
+		 * Skip Split Line Edit
+		 * 
+		 */
+		
+		skipSplitLineEdit = new GTextField(SpecialKey.NUM_2.toString(), false, "skipSplitLineEdit");
+		skipSplitLineEdit.setBounds(splitLineEdit.getX(), skipSplitLabel.getY(), 81, 20);
+		
+		centralWidget.add(skipSplitLineEdit);
+		
+		/*
+		 *
+		 * Reset Line Edit
+		 * 
+		 */
+		
+		resetLineEdit = new GTextField(SpecialKey.NUM_3.toString(), false, "resetLineEdit");
+		resetLineEdit.setBounds(splitLineEdit.getX(), resetLabel.getY(), 81, 20);
+		
+		centralWidget.add(resetLineEdit);
+		
+		/*
+		 * 
+		 * Pause Hot Key Line Edit
+		 * 
+		 */
+		
+		pauseHotKeyLineEdit = new GTextField(SpecialKey.NONE.toString(), false, "pauseHotKeyLineEdit");
+		pauseHotKeyLineEdit.setBounds(splitLineEdit.getX(), pauseLabel.getY(), 81, 20);
+		
+		centralWidget.add(pauseHotKeyLineEdit);
 		
 		/*
 		 * 
