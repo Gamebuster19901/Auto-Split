@@ -74,6 +74,7 @@ public class Main {
 	final GButton setSkipSplitHotKeyButton;
 	final GButton setUndoSplitHotKeyButton;
 	final GButton setPauseHotKeyButton;
+	final GLabel timerGlobalHotKeysLabel;
 	
 	public static void main(String[] args) {}
 	
@@ -532,6 +533,17 @@ public class Main {
 		
 		/*
 		 * 
+		 * Timer Global Hot Keys Label
+		 * 
+		 */
+		
+		timerGlobalHotKeysLabel = new GLabel("Timer Global Hotkeys", "timerGlobalHotKeysLabel");
+		timerGlobalHotKeysLabel.setBounds(leftOf(splitLineEdit, 4), below(splitLineEdit, -50), getStringWidth(timerGlobalHotKeysLabel), 20);
+		
+		centralWidget.add(timerGlobalHotKeysLabel);
+		
+		/*
+		 * 
 		 * Frame And Widget 
 		 * 
 		 */
@@ -555,6 +567,10 @@ public class Main {
 	
 	private int getStringWidth(JComponent component, String text) {
 		return component.getFontMetrics(component.getFont()).stringWidth(text);
+	}
+	
+	private int leftOf(JComponent component, int amount) {
+		return component.getX() - amount;
 	}
 	
 	private int rightOf(JComponent component) {
