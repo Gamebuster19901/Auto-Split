@@ -198,7 +198,8 @@ public enum SpecialKey {
 	ALT_GRAPH(VK_ALT_GRAPH),
 	BEGIN(VK_BEGIN),
 	
-	NOT_SPECIAL(-1)
+	NOT_SPECIAL(-1),
+	NONE(-2)
 	
 	;
 	
