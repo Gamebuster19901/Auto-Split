@@ -52,9 +52,8 @@ public class GImagePanel extends JPanel implements DynamicallySized {
 	}
 	
 	@Override
-	@SuppressWarnings("deprecation") //Need to use reshape to avoid a StackOverFlow
 	public void setBounds(int x, int y, int width, int height) {
-		super.reshape(x, y, width, height);
+		super.setBounds(x, y, width, height);
 		this.setMaximumSize(new Dimension(width, height));
 		this.setImage(image);
 	}
