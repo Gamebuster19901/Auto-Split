@@ -2,7 +2,10 @@ package com.gamebuster19901.autosplit;
 
 import java.awt.Dimension;
 import java.awt.Rectangle;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
 
+import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
@@ -16,6 +19,7 @@ import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
 import com.gamebuster19901.autosplit.input.SpecialKey;
+import com.gamebuster19901.autosplit.swing.DynamicallySized;
 import com.gamebuster19901.autosplit.swing.FontSettings;
 import com.gamebuster19901.autosplit.swing.GButton;
 import com.gamebuster19901.autosplit.swing.GImagePanel;
@@ -531,8 +535,7 @@ public class Main {
 		 */
 		
 		liveImage = new GImagePanel();
-		liveImage.setBounds(111, 69, 240, 135);
-		
+		liveImage.setBounds(111, 69, 249, 180);
 		centralWidget.add(liveImage);
 		
 		/*
@@ -610,7 +613,10 @@ public class Main {
 	}
 	
 	private int rightOf(JComponent component) {
-		return component.getX() + component.getWidth();
+		if(!(component instanceof DynamicallySized)) {
+			return component.getX() + component.getWidth();
+		}
+		return component.getX() + ((DynamicallySized) component).getActualWidth();
 	}
 	
 	private int rightOf(JComponent component, int spacing) {
@@ -619,7 +625,14 @@ public class Main {
 	
 	private int below(JComponent component) {
 		if(component instanceof JButton) {
-			return component.getY() + component.getHeight() * 2 + component.getBorder().getBorderInsets(component).bottom + 1;
+			if(!(component instanceof DynamicallySized)) {
+				return component.getY() + component.getHeight() * 2 + component.getBorder().getBorderInsets(component).bottom + 1;
+			}
+			throw new UnsupportedOperationException("Cannot compute lower bounds of of dynamically sized JButton!");
+		}
+		else if (component instanceof DynamicallySized) {
+			DynamicallySized dynamic = (DynamicallySized) component;
+			return component.getY() + dynamic.getActualHeight();
 		}
 		else {
 			return component.getY() + component.getHeight();

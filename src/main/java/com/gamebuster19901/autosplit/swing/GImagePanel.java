@@ -11,7 +11,7 @@ import java.awt.Dimension;
 import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 
-public class GImagePanel extends JPanel {
+public class GImagePanel extends JPanel implements DynamicallySized {
 
 	private Rectangle preferredSize = new Rectangle(this.getBounds());
 	private Rectangle maximumSize = new Rectangle(this.getBounds());
@@ -27,9 +27,12 @@ public class GImagePanel extends JPanel {
 		this.setBackground(Color.MAGENTA);
 	}
 	
+	@SuppressWarnings("deprecation") //Need to use reshape to avoid a StackOverFlow
 	public void setImage(BufferedImage image) {
 		this.image = image;
 		this.setPreferredSize(new Dimension(image.getWidth(), image.getHeight()));
+		Rectangle actualBounds = getActualBounds();
+		this.reshape(this.getX(), this.getY(), actualBounds.width, actualBounds.height);
 	}
 	
 	public BufferedImage getImage() {
@@ -49,8 +52,9 @@ public class GImagePanel extends JPanel {
 	}
 	
 	@Override
+	@SuppressWarnings("deprecation") //Need to use reshape to avoid a StackOverFlow
 	public void setBounds(int x, int y, int width, int height) {
-		super.setBounds(x, y, width, height);
+		super.reshape(x, y, width, height);
 		this.setMaximumSize(new Dimension(width, height));
 		this.setImage(image);
 	}
@@ -63,15 +67,20 @@ public class GImagePanel extends JPanel {
 	
 	public Dimension getScaledSize() {
 		double scale = Math.min((double)maximumSize.getWidth() / (double)preferredSize.getWidth(), (double)maximumSize.getHeight() / (double)preferredSize.getHeight());
-		return new Dimension((int)(preferredSize.getWidth() * scale), (int)(preferredSize.getHeight() * scale));
+		Dimension dim = new Dimension();
+		dim.setSize((preferredSize.getWidth() * scale), (preferredSize.getHeight() * scale));
+		return dim;
+	}
+	
+	public Rectangle getActualBounds() {
+		return new Rectangle(getScaledSize());
 	}
 	
 	@Override
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		Dimension scaledSize = getScaledSize();
-		g.drawImage(image, 0, 0, (int)scaledSize.getWidth(), (int)scaledSize.getHeight(), 0, 0, image.getWidth(), image.getHeight(), this);
-		System.out.println(this.getSize().toString());
+		g.drawImage(image, 0, 0, (int)Math.round(scaledSize.getWidth()), (int)Math.round(scaledSize.getHeight()), 0, 0, image.getWidth(), image.getHeight(), this);
 	}
 	
 }
