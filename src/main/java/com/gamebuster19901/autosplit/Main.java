@@ -78,6 +78,7 @@ public class Main {
 	final GLabel timerGlobalHotKeysLabel;
 	final GImagePanel liveImage;
 	final GImagePanel currentSplitImage;
+	final GLabel imageLoopLabel;
 	
 	public static void main(String[] args) {}
 	
@@ -267,28 +268,6 @@ public class Main {
 		resetButton.setBounds(506, 385, calculateButtonWidth(startAutoSplitterButton), 31);
 		
 		centralWidget.add(resetButton);
-		
-		/*
-		 * 
-		 * Undo Split Button
-		 * 
-		 */
-		
-		undoSplitButton = new GButton("Undo Split", "undoSplitButton");
-		undoSplitButton.setBounds(489, 251, calculateButtonWidth(undoSplitButton), 21);
-		
-		centralWidget.add(undoSplitButton);
-		
-		/*
-		 * 
-		 * Skip Split Button
-		 * 
-		 */
-		
-		skipSplitButton = new GButton("Skip Split", "skipSplitButton");
-		skipSplitButton.setBounds(rightOf(undoSplitButton, 4), 251, 61, 21);
-		
-		centralWidget.add(skipSplitButton);
 		
 		/*
 		 * 
@@ -525,7 +504,7 @@ public class Main {
 		
 		/*
 		 * 
-		 * Set Puase Hot Key Button
+		 * Set Pause Hot Key Button
 		 * 
 		 */
 		
@@ -552,7 +531,7 @@ public class Main {
 		 */
 		
 		liveImage = new GImagePanel();
-		liveImage.setBounds(111, 69, 249, 180);
+		liveImage.setBounds(111, 69, 240, 135);
 		
 		centralWidget.add(liveImage);
 		
@@ -565,6 +544,40 @@ public class Main {
 		currentSplitImage.setBounds(rightOf(liveImage, 6), liveImage.getY(), liveImage.getWidth(), liveImage.getHeight());
 		
 		centralWidget.add(currentSplitImage);
+		
+		/*
+		 * 
+		 * Undo Split Button
+		 * 
+		 */
+		
+		undoSplitButton = new GButton("Undo Split", "undoSplitButton");
+		undoSplitButton.setBounds(489, below(currentSplitImage, 6), calculateButtonWidth(undoSplitButton), 21);
+		
+		centralWidget.add(undoSplitButton);
+		
+		/*
+		 * 
+		 * Skip Split Button
+		 * 
+		 */
+		
+		skipSplitButton = new GButton("Skip Split", "skipSplitButton");
+		skipSplitButton.setBounds(rightOf(undoSplitButton, 4), undoSplitButton.getY(), 61, 21);
+		
+		centralWidget.add(skipSplitButton);
+		
+		/*
+		 * 
+		 * Image Loop Label
+		 *
+		 */
+		imageLoopLabel = new GLabel("Image Loop #:", "imageLoopLabel");
+		imageLoopLabel.setBounds(currentSplitImage.getX(), undoSplitButton.getY(), getStringWidth(imageLoopLabel), 20);
+		
+		centralWidget.add(imageLoopLabel);
+		
+		
 		/*
 		 * 
 		 * Frame And Widget 
