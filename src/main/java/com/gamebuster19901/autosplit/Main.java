@@ -591,7 +591,8 @@ public class Main {
 		centralWidget.setSize(MIN_SIZE);
 		frame.setSize(MIN_SIZE);
 		frame.setMinimumSize(MIN_SIZE);
-		frame.setMaximumSize(MIN_SIZE); //TODO: See if this is necessary... This will be really small on 4k monitors
+		frame.setMaximumSize(MIN_SIZE);
+		frame.setResizable(false);
 		
 		frame.setVisible(true);
 	}
