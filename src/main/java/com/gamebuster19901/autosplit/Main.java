@@ -2,10 +2,7 @@ package com.gamebuster19901.autosplit;
 
 import java.awt.Dimension;
 import java.awt.Rectangle;
-import java.awt.image.BufferedImage;
-import java.io.IOException;
 
-import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
@@ -83,6 +80,13 @@ public class Main {
 	final GImagePanel liveImage;
 	final GImagePanel currentSplitImage;
 	final GLabel imageLoopLabel;
+	final GLabel widthLabel;
+	final GLabel heightLabel;
+	//final GLabel fpsValueLabel;
+	final JSpinner widthSpinBox;
+	final JSpinner heightSpinBox;
+	final GLabel captureRegionLabel;
+	final GLabel currentSplitImageLabel;
 	
 	public static void main(String[] args) {}
 	
@@ -583,6 +587,95 @@ public class Main {
 		
 		/*
 		 * 
+		 * Width Label
+		 * 
+		 */
+		widthLabel = new GLabel("Width", "widthLabel");
+		widthLabel.setBounds(centeredOn(widthLabel, xLabel), 177, getStringWidth(widthLabel), 20);
+		widthLabel.setLocation(14, 177);
+		
+		centralWidget.add(widthLabel);
+		
+		/*
+		 * 
+		 * Height Label
+		 * 
+		 */
+		heightLabel = new GLabel("Height", "heightLabel");
+		heightLabel.setBounds(0, 0, getStringWidth(heightLabel), 20);
+		heightLabel.setLocation(centeredOn(heightLabel, yLabel), 177);
+		
+		centralWidget.add(heightLabel);
+		
+		/*
+		 * 
+		 * FPS Value Label
+		 * 
+		 */
+		
+		//fpsValueLabel = new GLabel("@@@@", "fpsValueLabel");
+		//fpsValueLabel.setBounds(14,  177, getStringWidth(fpsValueLabel), 16);
+		
+		//centralWidget.add(fpsValueLabel);
+		
+		/*
+		 * 
+		 * Width Spin Box
+		 * 
+		 */
+		
+		widthSpinBox = new JSpinner(new SpinnerNumberModel(1080, 1, Integer.MAX_VALUE, 20));
+		widthSpinBox.setBounds(new Rectangle(1, below(widthLabel), 54, 22));
+		JSpinner.NumberEditor widthSpinEditor = new JSpinner.NumberEditor(widthSpinBox, "#");
+		widthSpinBox.setEditor(widthSpinEditor);
+		widthSpinBox.setName("widthSpinBox");
+		
+		centralWidget.add(widthSpinBox);
+		
+		/*
+		 * 
+		 * Height Spin Box
+		 * 
+		 */
+		
+		heightSpinBox = new JSpinner(new SpinnerNumberModel(1920, 1, Integer.MAX_VALUE, 20));
+		heightSpinBox.setBounds(new Rectangle(leftOf(heightLabel, 5), below(heightLabel), 54, 22));
+		JSpinner.NumberEditor heightSpinEditor = new JSpinner.NumberEditor(heightSpinBox, "#");
+		heightSpinBox.setEditor(heightSpinEditor);
+		heightSpinBox.setName("heightSpinBox");
+		
+		centralWidget.add(heightSpinBox);
+		
+		/*
+		 * 
+		 * Capture Region Label
+		 * 
+		 */
+		
+		captureRegionLabel = new GLabel("Capture Region", "captureRegionLabel");
+		captureRegionLabel.setSize(getStringWidth(captureRegionLabel), 20);
+		captureRegionLabel.setLocation(centeredOn(captureRegionLabel, liveImage), above(captureRegionLabel, liveImage));
+		centralWidget.add(captureRegionLabel);
+		
+		/*
+		 * 
+		 * Current Split Image Label
+		 * 
+		 */
+		
+		currentSplitImageLabel = new GLabel("Current Split Image", "currentSplitImageLabel");
+		currentSplitImageLabel.setBounds(centeredOn(currentSplitImageLabel, currentSplitImage), above(currentSplitImageLabel, currentSplitImage), getStringWidth(currentSplitImageLabel) + 4, 20);
+		currentSplitImageLabel.setLocation(centeredOn(currentSplitImageLabel,  currentSplitImage), above(currentSplitImageLabel, currentSplitImage));
+		centralWidget.add(currentSplitImageLabel);
+		
+		/*
+		 * 
+		 * 
+		 * 
+		 */
+		
+		/*
+		 * 
 		 * Frame And Widget 
 		 * 
 		 */
@@ -642,6 +735,36 @@ public class Main {
 	
 	private int below(JComponent component, int spacing) {
 		return below(component) + spacing;
+	}
+	
+	private int above(JComponent upperComponent, JComponent lowerComponent) {
+		System.out.println(lowerComponent.getY() - upperComponent.getHeight());
+		return lowerComponent.getY() - upperComponent.getHeight();
+	}
+	
+	private int centeredOn(JComponent componentToCenter, JComponent component) {
+		int mid;
+		if(!(component instanceof DynamicallySized)) {
+			mid = component.getX() + component.getWidth() / 2;
+		}
+		else {
+			System.out.println(((DynamicallySized) component).getActualWidth());
+			mid = component.getX() + ((DynamicallySized)component).getActualWidth() / 2;
+		}
+		
+		int pos;
+		if(!(componentToCenter instanceof DynamicallySized)) {
+			pos = componentToCenter.getWidth() / 2;
+		}
+		else {
+			System.out.println(((DynamicallySized) component).getActualWidth());
+			pos = ((DynamicallySized) component).getActualWidth() / 2;
+		}
+		
+		pos = mid - pos;
+		
+		return pos;
+		
 	}
 	
 }
