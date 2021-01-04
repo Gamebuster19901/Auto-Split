@@ -49,6 +49,8 @@ public class Main {
 	final GCheckBox loopCheckBox;
 	final GCheckBox autoRestartOnResetCheckBox;
 	final GButton selectRegionButton;
+	final GButton alignRegionButton;
+	final GButton selectWindowButton;
 	final GLabel similarityThresholdLabel;
 	final JSpinner similarityThresholdDoubleSpinBox;
 	final GButton startAutoSplitterButton;
@@ -229,9 +231,31 @@ public class Main {
 		 */
 		
 		selectRegionButton = new GButton("Select Region", "selectRegionButton");
-		selectRegionButton.setBounds(new Rectangle(column1, 67, calculateButtonWidth(selectRegionButton), 23));
+		selectRegionButton.setBounds(new Rectangle(column1 + 6, 67, 90, 20));
 		
 		centralWidget.add(selectRegionButton);
+		
+		/*
+		 * 
+		 * Align Region Button
+		 * 
+		 */
+		
+		alignRegionButton = new GButton("Align Region", "alignRegionButton");
+		alignRegionButton.setBounds(selectRegionButton.getX(), belowButton(selectRegionButton, 3), 90, 20);
+		
+		centralWidget.add(alignRegionButton);
+		
+		/*
+		 * 
+		 * Select Window Button
+		 * 
+		 */
+		
+		selectWindowButton = new GButton("Select Window", "selectWindowButton");
+		selectWindowButton.setBounds(selectRegionButton.getX(), belowButton(alignRegionButton, 3), 90, 20);
+		
+		centralWidget.add(selectWindowButton);
 		
 		/*
 		 * 
@@ -294,7 +318,7 @@ public class Main {
 		 */
 		
 		showLiveSimilarityCheckBox = new GCheckBox("Show live similarity", "showLiveSimilarityCheckBox", true);
-		showLiveSimilarityCheckBox.setBounds(column1, 339, calculateCheckBoxWidth(showLiveSimilarityCheckBox), 17);
+		showLiveSimilarityCheckBox.setBounds(column1, 329, calculateCheckBoxWidth(showLiveSimilarityCheckBox), 17);
 		
 		centralWidget.add(showLiveSimilarityCheckBox);
 		
@@ -757,12 +781,23 @@ public class Main {
 		
 		/*
 		 * 
+		 * Comparison Method Label
+		 * 
+		 */
+		
+		comparisonMethodLabel = new GLabel("Comparison Method", "comparisonMethodLabel");
+		comparisonMethodLabel.setBounds(0, 299, getStringWidth(comparisonMethodLabel), 16);
+		
+		centralWidget.add(comparisonMethodLabel);
+		
+		/*
+		 * 
 		 * Comparison Method Combo Box
 		 * 
 		 */
 		
 		comparisonMethodComboBox = new JComboBox<Comparison>(Comparison.values());
-		comparisonMethodComboBox.setBounds(143,  299,  81,  22);
+		comparisonMethodComboBox.setBounds(rightOf(comparisonMethodLabel, 53), comparisonMethodLabel.getY(),  81,  22);
 		comparisonMethodComboBox.setName("comparisonMethodComboBox");
 		comparisonMethodComboBox.setFont(GLabel.DEFAULT_FONT_SETTINGS.getFont());
 		
