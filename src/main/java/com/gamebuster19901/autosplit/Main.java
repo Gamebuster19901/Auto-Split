@@ -5,7 +5,6 @@ import java.awt.Rectangle;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
@@ -20,6 +19,7 @@ import com.gamebuster19901.autosplit.input.SpecialKey;
 import com.gamebuster19901.autosplit.swing.DynamicallySized;
 import com.gamebuster19901.autosplit.swing.FontSettings;
 import com.gamebuster19901.autosplit.swing.GButton;
+import com.gamebuster19901.autosplit.swing.GCheckBox;
 import com.gamebuster19901.autosplit.swing.GImagePanel;
 import com.gamebuster19901.autosplit.swing.GLabel;
 import com.gamebuster19901.autosplit.swing.GTextField;
@@ -45,9 +45,9 @@ public class Main {
 	final GButton browseButton;
 	final GLabel xLabel;
 	final GLabel yLabel;
-	final JCheckBox liveImageCheckBox;
-	final JCheckBox loopCheckBox;
-	final JCheckBox autoRestartOnResetCheckBox;
+	final GCheckBox liveImageCheckBox;
+	final GCheckBox loopCheckBox;
+	final GCheckBox autoRestartOnResetCheckBox;
 	final GButton selectRegionButton;
 	final GLabel similarityThresholdLabel;
 	final JSpinner similarityThresholdDoubleSpinBox;
@@ -57,8 +57,8 @@ public class Main {
 	final GButton skipSplitButton;
 	final GButton maxFPSButton;
 	final GLabel fpsLabel;
-	final JCheckBox showLiveSimilarityCheckBox;
-	final JCheckBox showHighestSimilarityCheckBox;
+	final GCheckBox showLiveSimilarityCheckBox;
+	final GCheckBox showHighestSimilarityCheckBox;
 	final GLabel liveSimilarityLabel;
 	final GLabel highestSimilarityLabel;
 	final GLabel splitLabel;
@@ -201,9 +201,8 @@ public class Main {
 		 * 
 		 */
 		
-		loopCheckBox = new JCheckBox(null, null, true);
-		loopCheckBox.setBounds(new Rectangle(row3column3 + 10, 314, 121, 17));
-		loopCheckBox.setName("loopCheckBox");
+		loopCheckBox = new GCheckBox("Loop Split Images", "loopCheckBox", true);
+		loopCheckBox.setBounds(new Rectangle(row3column3 + 10, 314, calculateCheckBoxWidth(loopCheckBox), 17));
 		
 		centralWidget.add(loopCheckBox);
 		
@@ -213,9 +212,8 @@ public class Main {
 		 * 
 		 */
 		
-		autoRestartOnResetCheckBox = new JCheckBox(null, null, true);
-		autoRestartOnResetCheckBox.setBounds(row3column3 + 10, 344, 121, 17);
-		autoRestartOnResetCheckBox.setName("autoRestartOnResetCheckBox");
+		autoRestartOnResetCheckBox = new GCheckBox("Auto Start On Reset", "autoRestartOnResetCheckBox", true);
+		autoRestartOnResetCheckBox.setBounds(row3column3 + 10, 344, calculateCheckBoxWidth(autoRestartOnResetCheckBox), 17);
 		
 		centralWidget.add(autoRestartOnResetCheckBox);
 		
@@ -290,9 +288,8 @@ public class Main {
 		 * 
 		 */
 		
-		showLiveSimilarityCheckBox = new JCheckBox(null, null, true);
-		showLiveSimilarityCheckBox.setBounds(column1, 339, 111, 17);
-		showLiveSimilarityCheckBox.setName("showLiveSimilarityCheckBox");
+		showLiveSimilarityCheckBox = new GCheckBox("Show live similarity", "showLiveSimilarityCheckBox", true);
+		showLiveSimilarityCheckBox.setBounds(column1, 339, calculateCheckBoxWidth(showLiveSimilarityCheckBox), 17);
 		
 		centralWidget.add(showLiveSimilarityCheckBox);
 		
@@ -302,9 +299,8 @@ public class Main {
 		 * 
 		 */
 		
-		showHighestSimilarityCheckBox = new JCheckBox(null, null, true);
-		showHighestSimilarityCheckBox.setBounds(column1, below(showLiveSimilarityCheckBox), 131, 17);
-		showHighestSimilarityCheckBox.setName("showHighestSimilarityCheckBox");
+		showHighestSimilarityCheckBox = new GCheckBox("Show highest similarity", "showHighestSimilarityCheckBox", true);
+		showHighestSimilarityCheckBox.setBounds(column1, below(showLiveSimilarityCheckBox), calculateCheckBoxWidth(showHighestSimilarityCheckBox), 17);
 		
 		centralWidget.add(showHighestSimilarityCheckBox);
 		
@@ -533,11 +529,8 @@ public class Main {
 		 * 
 		 */
 		
-		liveImageCheckBox = new JCheckBox(null, null, true);
-		liveImageCheckBox.setName("liveImageCheckBox");
-		liveImageCheckBox.setFont(GLabel.DEFAULT_FONT_SETTINGS.getFont());
-		liveImageCheckBox.setText("Live Capture Region");
-		liveImageCheckBox.setBounds(new Rectangle(liveImage.getX() + 15, below(liveImage, 2), 130, 17));
+		liveImageCheckBox = new GCheckBox("Live Capture Region", "liveImageCheckBox", true);
+		liveImageCheckBox.setBounds(new Rectangle(liveImage.getX() + 15, below(liveImage, 2), calculateCheckBoxWidth(liveImageCheckBox), 17));
 		
 		centralWidget.add(liveImageCheckBox);
 		
@@ -548,7 +541,7 @@ public class Main {
 		 */
 		
 		takeScreenshotButton = new GButton("Take Screenshot", "takeScreenshotButton");
-		takeScreenshotButton.setBounds(rightOf(liveImageCheckBox), liveImageCheckBox.getY(), calculateButtonWidth(takeScreenshotButton), 21);
+		takeScreenshotButton.setBounds(rightOf(liveImageCheckBox) + 3, liveImageCheckBox.getY(), calculateButtonWidth(takeScreenshotButton), 21);
 		
 		centralWidget.add(takeScreenshotButton);
 		
@@ -792,6 +785,10 @@ public class Main {
 	
 	private int calculateButtonWidth(JButton button) {
 		return button.getFontMetrics(button.getFont()).stringWidth(button.getText()) + (button.getBorder().getBorderInsets(button).left * 2) + 12;
+	}
+	
+	private int calculateCheckBoxWidth(GCheckBox box) {
+		return getStringWidth(new GLabel(box.getText(), "")) + 20;
 	}
 	
 	private int getStringWidth(JComponent component, String text) {
