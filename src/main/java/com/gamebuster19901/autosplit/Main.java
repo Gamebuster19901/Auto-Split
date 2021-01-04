@@ -6,6 +6,7 @@ import java.awt.Rectangle;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
+import javax.swing.JComboBox;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -93,6 +94,7 @@ public class Main {
 	final GButton takeScreenshotButton;
 	final JSpinner xSpinBox;
 	final JSpinner ySpinBox;
+	final JComboBox comparisonMethodComboBox;
 	
 	public static void main(String[] args) {}
 	
@@ -746,6 +748,7 @@ public class Main {
 		 * Y Spin Box
 		 * 
 		 */
+		
 		ySpinBox = new JSpinner(new SpinnerNumberModel(0, 0, Integer.MAX_VALUE, 20));
 		ySpinBox.setBounds(heightSpinBox.getX(), below(yLabel), heightSpinBox.getWidth(), heightSpinBox.getHeight());
 		JSpinner.NumberEditor ySpinEditor = new JSpinner.NumberEditor(ySpinBox, "#");
@@ -753,6 +756,19 @@ public class Main {
 		ySpinBox.setName("ySpinBox");
 		
 		centralWidget.add(ySpinBox);
+		
+		/*
+		 * 
+		 * Comparison Method Combo Box
+		 * 
+		 */
+		
+		comparisonMethodComboBox = new JComboBox<Comparison>(Comparison.values());
+		comparisonMethodComboBox.setBounds(143,  299,  81,  22);
+		comparisonMethodComboBox.setName("comparisonMethodComboBox");
+		comparisonMethodComboBox.setFont(GLabel.DEFAULT_FONT_SETTINGS.getFont());
+		
+		centralWidget.add(comparisonMethodComboBox);
 		
 		/*
 		 * 
