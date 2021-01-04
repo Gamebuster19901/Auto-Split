@@ -183,7 +183,7 @@ public class Main {
 		 */
 		
 		yLabel = new GLabel("Y", "yLabel");
-		yLabel.setBounds(81, 139, getStringWidth(yLabel), 16);
+		yLabel.setBounds(75, 139, getStringWidth(yLabel), 16);
 		
 		centralWidget.add(yLabel);
 		
