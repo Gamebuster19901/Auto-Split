@@ -94,7 +94,12 @@ public class Main {
 	final GButton takeScreenshotButton;
 	final JSpinner xSpinBox;
 	final JSpinner ySpinBox;
-	final JComboBox comparisonMethodComboBox;
+	final JComboBox<Comparison> comparisonMethodComboBox;
+	final JSpinner pauseDoubleSpinBox;
+	final GCheckBox customThresholdCheckBox;
+	final GCheckBox customPauseTimeCheckBox;
+	final GLabel comparisonMethodLabel;
+	final GCheckBox groupDummySplitsCheckBox;
 	
 	public static void main(String[] args) {}
 	
@@ -762,6 +767,50 @@ public class Main {
 		comparisonMethodComboBox.setFont(GLabel.DEFAULT_FONT_SETTINGS.getFont());
 		
 		centralWidget.add(comparisonMethodComboBox);
+		
+		/*
+		 * 
+		 * Pause Double Spin Box
+		 * 
+		 */
+		
+		pauseDoubleSpinBox = new JSpinner(new SpinnerNumberModel(10, 0, 120, 0.5d));
+		pauseDoubleSpinBox.setBounds(similarityThresholdDoubleSpinBox.getX(), pauseTimeAfterSplitLabel.getY(), similarityThresholdDoubleSpinBox.getWidth(), similarityThresholdDoubleSpinBox.getHeight());
+		pauseDoubleSpinBox.setName("pauseDoubleSpinBox");
+		
+		centralWidget.add(pauseDoubleSpinBox);
+		
+		/*
+		 * 
+		 * Custom Threshold Check Box
+		 * 
+		 */
+		customThresholdCheckBox = new GCheckBox("Custom thresholds", "customThresholdCheckBox");
+		customThresholdCheckBox.setBounds(similarityThresholdLabel.getX(), below(similarityThresholdLabel), calculateCheckBoxWidth(customThresholdCheckBox), 17);
+		
+		centralWidget.add(customThresholdCheckBox);
+		
+		/*
+		 * 
+		 * Custom Pause Time Check Box
+		 * 
+		 */
+		
+		customPauseTimeCheckBox = new GCheckBox("Custom pause times", "customPauseTimeCheckBox");
+		customPauseTimeCheckBox.setBounds(pauseTimeAfterSplitLabel.getX(), below(pauseTimeAfterSplitLabel), calculateCheckBoxWidth(customPauseTimeCheckBox), 17);
+		
+		centralWidget.add(customPauseTimeCheckBox);
+		
+		/*
+		 * 
+		 * Group Dummy Splits Check Box
+		 * 
+		 */
+		
+		groupDummySplitsCheckBox = new GCheckBox("Group dummy splits when undoing/skipping", "groupDummySplitsCheckBox");
+		groupDummySplitsCheckBox.setBounds(row3column2, below(pauseLabel, 6), calculateCheckBoxWidth(groupDummySplitsCheckBox), 17);
+		
+		centralWidget.add(groupDummySplitsCheckBox);
 		
 		/*
 		 * 
