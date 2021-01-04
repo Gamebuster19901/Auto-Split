@@ -91,6 +91,8 @@ public class Main {
 	final JSpinner fpsLimitSpinBox;
 	final GLabel currentSplitImageFileLabel;
 	final GButton takeScreenshotButton;
+	final JSpinner xSpinBox;
+	final JSpinner ySpinBox;
 	
 	public static void main(String[] args) {}
 	
@@ -725,6 +727,32 @@ public class Main {
 		currentSplitImageFileLabel.setLocation(centeredOn(currentSplitImageFileLabel, currentSplitImage), belowButton(undoSplitButton));
 		
 		centralWidget.add(currentSplitImageFileLabel);
+		
+		/*
+		 * 
+		 * X Spin Box
+		 * 
+		 */
+		xSpinBox = new JSpinner(new SpinnerNumberModel(0, 0, Integer.MAX_VALUE, 20));
+		xSpinBox.setBounds(widthSpinBox.getX(), below(xLabel), widthSpinBox.getWidth(), widthSpinBox.getHeight());
+		JSpinner.NumberEditor xSpinEditor = new JSpinner.NumberEditor(xSpinBox, "#");
+		xSpinBox.setEditor(xSpinEditor);
+		xSpinBox.setName("xSpinBox");
+		
+		centralWidget.add(xSpinBox);
+		
+		/*
+		 * 
+		 * Y Spin Box
+		 * 
+		 */
+		ySpinBox = new JSpinner(new SpinnerNumberModel(0, 0, Integer.MAX_VALUE, 20));
+		ySpinBox.setBounds(heightSpinBox.getX(), below(yLabel), heightSpinBox.getWidth(), heightSpinBox.getHeight());
+		JSpinner.NumberEditor ySpinEditor = new JSpinner.NumberEditor(ySpinBox, "#");
+		ySpinBox.setEditor(ySpinEditor);
+		ySpinBox.setName("ySpinBox");
+		
+		centralWidget.add(ySpinBox);
 		
 		/*
 		 * 
