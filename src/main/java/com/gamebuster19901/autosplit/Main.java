@@ -87,6 +87,8 @@ public class Main {
 	final JSpinner heightSpinBox;
 	final GLabel captureRegionLabel;
 	final GLabel currentSplitImageLabel;
+	final GLabel fpsLimitLabel;
+	final JSpinner fpsLimitSpinBox;
 	
 	public static void main(String[] args) {}
 	
@@ -670,8 +672,31 @@ public class Main {
 		fpsLabel.setBounds(leftOf(liveImage, fpsLabelWidth + 3), maxFPSButton.getY(), fpsLabelWidth, 20);
 		
 		centralWidget.add(fpsLabel);
+		
+		/*
+		 * 
+		 * FPS Limit Label
 		 * 
 		 */
+		
+		fpsLimitLabel = new GLabel("FPS Limit:", "fpsLimitLabel");
+		fpsLimitLabel.setBounds(maxFPSButton.getX(), belowButton(maxFPSButton, 6), getStringWidth(fpsLimitLabel), 16);
+		
+		centralWidget.add(fpsLimitLabel);
+		
+		/*
+		 * 
+		 * FPS Limit Spin Box
+		 * 
+		 */
+		
+		fpsLimitSpinBox = new JSpinner(new SpinnerNumberModel(30, 30, 300, 30));
+		fpsLimitSpinBox.setBounds(heightSpinBox.getX(), fpsLimitLabel.getY(), heightSpinBox.getWidth(), heightSpinBox.getHeight());
+		JSpinner.NumberEditor fpsEditor = new JSpinner.NumberEditor(fpsLimitSpinBox, "#");
+		fpsLimitSpinBox.setEditor(fpsEditor);
+		fpsLimitSpinBox.setName("fpsLimitSpinBox");
+		
+		centralWidget.add(fpsLimitSpinBox);
 		
 		/*
 		 * 
@@ -714,6 +739,20 @@ public class Main {
 	
 	private int rightOf(JComponent component, int spacing) {
 		return rightOf(component) + spacing;
+	}
+	
+	private int belowButton(JButton button) {
+		if (button instanceof DynamicallySized) {
+			DynamicallySized dynamic = (DynamicallySized) button;
+			return button.getY() + dynamic.getActualHeight();
+		}
+		else {
+			return button.getY() + button.getHeight();
+		}
+	}
+	
+	private int belowButton(JButton button, int spacing) {
+		return belowButton(button) + spacing;
 	}
 	
 	private int below(JComponent component) {
