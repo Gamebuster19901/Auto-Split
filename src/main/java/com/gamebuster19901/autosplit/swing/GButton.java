@@ -7,6 +7,8 @@ import javax.swing.JButton;
 import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
 
+import com.gamebuster19901.autosplit.Main;
+
 @SuppressWarnings("serial")
 public class GButton extends JButton {
 	
@@ -19,6 +21,8 @@ public class GButton extends JButton {
 		this.setFocusable(false);
 		this.setName(name);
 		this.setBorder(BORDER);
+		this.setActionCommand(text);
+		this.addActionListener(Main.SPLITTER);
 	}
 	
 	public GButton(String text, String name, FontSettings fontSettings) {

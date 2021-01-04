@@ -1,17 +1,20 @@
 package com.gamebuster19901.autosplit;
 
-import static java.awt.event.KeyEvent.KEY_LOCATION_STANDARD;
-
 import java.awt.AWTError;
 import java.awt.AWTException;
 import java.awt.Robot;
 
-public class Hotkey {
+import javax.swing.KeyStroke;
+
+import com.gamebuster19901.autosplit.input.SpecialKey;
+
+public interface Hotkey {
+
+	public static final Robot ROBOT = init();
 	
-	private static final Robot ROBOT;
-	static {
+	public static Robot init() {
 		try {
-			ROBOT = new Robot();
+			return new Robot();
 		} catch (AWTException e) {
 			AWTError err = new AWTError("Unable to instantiate the Robot instance");
 			err.initCause(e);
@@ -19,29 +22,31 @@ public class Hotkey {
 		}
 	}
 	
-	private int keyCode;
-	private int keyLocation;
+	public int getKeyCode();
 	
-	public Hotkey(int keyCode) {
-		setKeyCode(keyCode, KEY_LOCATION_STANDARD);
+	@Deprecated
+	public int getKeyLocation();
+	
+	public default void strike() {
+		press();
+		release();
 	}
 	
-	public void setKeyCode(int keyCode, int keyLocation) {
-		this.keyCode = keyCode;
-		this.keyLocation = keyLocation;
+	public default void press() {
+		ROBOT.keyPress(getKeyCode());
 	}
 	
-	public int getKeyCode() {
-		return keyCode;
+	public default void release() {
+		ROBOT.keyRelease(getKeyCode());
 	}
 	
-	public int getKeyLocation() {
-		return keyLocation;
-	}
-	
-	public void press() {
-		ROBOT.keyPress(keyCode);
-		ROBOT.keyRelease(keyCode);
+	public static Hotkey deriveKeyFromText(String text) {
+		Hotkey hotkey;
+		hotkey = SpecialKey.getSpecialKey(text);
+		if(hotkey != SpecialKey.NOT_SPECIAL) {
+			return hotkey;
+		}
+		return new NormalKey(KeyStroke.getKeyStroke(text).getKeyCode());
 	}
 	
 }

@@ -4,6 +4,8 @@ import static java.awt.event.KeyEvent.*;
 
 import java.util.HashSet;
 
+import com.gamebuster19901.autosplit.Hotkey;
+
 /**
  * 
  * These keys either have no visual representation, or have multiple
@@ -11,7 +13,7 @@ import java.util.HashSet;
  *
  */
 
-public enum SpecialKey {
+public enum SpecialKey implements Hotkey {
 	
 	ENTER(VK_ENTER),
 	NUMPAD_ENTER(VK_ENTER, KEY_LOCATION_NUMPAD),
@@ -258,6 +260,14 @@ public enum SpecialKey {
 			}
 		}
 		return NOT_SPECIAL;
+	}
+	
+	public int getKeyCode() {
+		return keyCode;
+	}
+	
+	public int getKeyLocation() {
+		return keyLocation;
 	}
 	
 }

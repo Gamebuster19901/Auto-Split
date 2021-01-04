@@ -29,6 +29,7 @@ import static javax.swing.JFrame.DISPOSE_ON_CLOSE;
 public class Main {
 
 	public static final Main INSTANCE;
+	public static final AutoSplit SPLITTER = new AutoSplit();
 	static {
 		try {
 			INSTANCE = new Main();
@@ -38,6 +39,8 @@ public class Main {
 	}
 	
 	private final FontSettings fontSettings = new FontSettings();
+	
+	public final JFrame frame;
 	
 	final JPanel centralWidget;
 	
@@ -69,7 +72,7 @@ public class Main {
 	public static void main(String[] args) {}
 	
 	public Main() throws ClassNotFoundException, InstantiationException, IllegalAccessException, UnsupportedLookAndFeelException {
-		JFrame frame = new JFrame();
+		frame = new JFrame();
 		
 		int column1 = 5;
 		
