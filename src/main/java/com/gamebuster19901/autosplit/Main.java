@@ -191,18 +191,6 @@ public class Main {
 		
 		/*
 		 * 
-		 * Live Image Check Box
-		 * 
-		 */
-		
-		liveImageCheckBox = new JCheckBox(null, null, true);
-		liveImageCheckBox.setBounds(new Rectangle(125, 253, 121, 17));
-		liveImageCheckBox.setName("liveImageCheckBox");
-		
-		centralWidget.add(liveImageCheckBox);
-		
-		/*
-		 * 
 		 * Loop Check Box
 		 * 
 		 */
@@ -532,6 +520,20 @@ public class Main {
 		liveImage = new GImagePanel();
 		liveImage.setBounds(111, 69, 249, 180);
 		centralWidget.add(liveImage);
+		
+		/*
+		 * 
+		 * Live Image Check Box
+		 * 
+		 */
+		
+		liveImageCheckBox = new JCheckBox(null, null, true);
+		liveImageCheckBox.setName("liveImageCheckBox");
+		liveImageCheckBox.setFont(GLabel.DEFAULT_FONT_SETTINGS.getFont());
+		liveImageCheckBox.setText("Live Capture Region");
+		liveImageCheckBox.setBounds(new Rectangle(liveImage.getX() + 20, below(liveImage), 150, 17));
+		
+		centralWidget.add(liveImageCheckBox);
 		
 		/*
 		 * 

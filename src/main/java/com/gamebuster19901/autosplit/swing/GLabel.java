@@ -7,7 +7,7 @@ import javax.swing.JLabel;
 @SuppressWarnings("serial")
 public class GLabel extends JLabel {
 
-	private static final FontSettings DEFAULT_FONT_SETTINGS = new FontSettings();
+	public static final FontSettings DEFAULT_FONT_SETTINGS = new FontSettings();
 	
 	public GLabel(String text, String name) {
 		super(text);
