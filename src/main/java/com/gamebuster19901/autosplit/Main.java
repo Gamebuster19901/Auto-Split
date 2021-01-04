@@ -1,7 +1,6 @@
 package com.gamebuster19901.autosplit;
 
 import java.awt.Dimension;
-import java.awt.Font;
 import java.awt.Rectangle;
 
 import javax.swing.ImageIcon;
@@ -533,7 +532,7 @@ public class Main {
 		liveImageCheckBox.setName("liveImageCheckBox");
 		liveImageCheckBox.setFont(GLabel.DEFAULT_FONT_SETTINGS.getFont());
 		liveImageCheckBox.setText("Live Capture Region");
-		liveImageCheckBox.setBounds(new Rectangle(liveImage.getX() + 20, below(liveImage), 150, 17));
+		liveImageCheckBox.setBounds(new Rectangle(liveImage.getX() + 15, below(liveImage, 2), 130, 17));
 		
 		centralWidget.add(liveImageCheckBox);
 		
@@ -554,7 +553,7 @@ public class Main {
 		 */
 		
 		undoSplitButton = new GButton("Undo Split", "undoSplitButton");
-		undoSplitButton.setBounds(489, below(currentSplitImage, 6), calculateButtonWidth(undoSplitButton), 21);
+		undoSplitButton.setBounds(489, below(currentSplitImage, 2), calculateButtonWidth(undoSplitButton), 21);
 		
 		centralWidget.add(undoSplitButton);
 		
@@ -711,7 +710,7 @@ public class Main {
 		currentSplitImageFileLabel = new GLabel("No Split Image Provided", "currentSplitImageFileLabel");
 		currentSplitImageFileLabel.setSize(getStringWidth(currentSplitImageFileLabel), 16);
 		currentSplitImageFileLabel.setMaximumSize(currentSplitImageFileLabel.getSize());
-		currentSplitImageFileLabel.setLocation(centeredOn(currentSplitImageFileLabel, currentSplitImage), belowButton(undoSplitButton, 3));
+		currentSplitImageFileLabel.setLocation(centeredOn(currentSplitImageFileLabel, currentSplitImage), belowButton(undoSplitButton));
 		
 		centralWidget.add(currentSplitImageFileLabel);
 		
