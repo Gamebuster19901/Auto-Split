@@ -290,17 +290,6 @@ public class Main {
 		
 		/*
 		 * 
-		 * FPS Label
-		 * 
-		 */
-		
-		fpsLabel = new GLabel("FPS", "fpsLabel");
-		fpsLabel.setBounds(82, 225, getStringWidth(fpsLabel), 20);
-		
-		centralWidget.add(fpsLabel);
-		
-		/*
-		 * 
 		 * Show Live Similarity Check Box
 		 * 
 		 */
@@ -655,6 +644,7 @@ public class Main {
 		captureRegionLabel = new GLabel("Capture Region", "captureRegionLabel");
 		captureRegionLabel.setSize(getStringWidth(captureRegionLabel), 20);
 		captureRegionLabel.setLocation(centeredOn(captureRegionLabel, liveImage), above(captureRegionLabel, liveImage));
+		
 		centralWidget.add(captureRegionLabel);
 		
 		/*
@@ -666,11 +656,20 @@ public class Main {
 		currentSplitImageLabel = new GLabel("Current Split Image", "currentSplitImageLabel");
 		currentSplitImageLabel.setBounds(centeredOn(currentSplitImageLabel, currentSplitImage), above(currentSplitImageLabel, currentSplitImage), getStringWidth(currentSplitImageLabel) + 4, 20);
 		currentSplitImageLabel.setLocation(centeredOn(currentSplitImageLabel,  currentSplitImage), above(currentSplitImageLabel, currentSplitImage));
+		
 		centralWidget.add(currentSplitImageLabel);
 		
 		/*
 		 * 
+		 * FPS Label
 		 * 
+		 */
+		
+		fpsLabel = new GLabel("FPS", "fpsLabel");
+		final int fpsLabelWidth = getStringWidth(fpsLabel);
+		fpsLabel.setBounds(leftOf(liveImage, fpsLabelWidth + 3), maxFPSButton.getY(), fpsLabelWidth, 20);
+		
+		centralWidget.add(fpsLabel);
 		 * 
 		 */
 		
