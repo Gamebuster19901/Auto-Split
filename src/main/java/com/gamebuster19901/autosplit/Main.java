@@ -1,6 +1,7 @@
 package com.gamebuster19901.autosplit;
 
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.Rectangle;
 
 import javax.swing.ImageIcon;
@@ -89,6 +90,7 @@ public class Main {
 	final GLabel currentSplitImageLabel;
 	final GLabel fpsLimitLabel;
 	final JSpinner fpsLimitSpinBox;
+	final GLabel currentSplitImageFileLabel;
 	
 	public static void main(String[] args) {}
 	
@@ -699,6 +701,19 @@ public class Main {
 		fpsLimitSpinBox.setName("fpsLimitSpinBox");
 		
 		centralWidget.add(fpsLimitSpinBox);
+		
+		/*
+		 * 
+		 * Current Split Image File Label
+		 * 
+		 */
+		
+		currentSplitImageFileLabel = new GLabel("No Split Image Provided", "currentSplitImageFileLabel");
+		currentSplitImageFileLabel.setSize(getStringWidth(currentSplitImageFileLabel), 16);
+		currentSplitImageFileLabel.setMaximumSize(currentSplitImageFileLabel.getSize());
+		currentSplitImageFileLabel.setLocation(centeredOn(currentSplitImageFileLabel, currentSplitImage), belowButton(undoSplitButton, 3));
+		
+		centralWidget.add(currentSplitImageFileLabel);
 		
 		/*
 		 * 
