@@ -90,6 +90,7 @@ public class Main {
 	final GLabel fpsLimitLabel;
 	final JSpinner fpsLimitSpinBox;
 	final GLabel currentSplitImageFileLabel;
+	final GButton takeScreenshotButton;
 	
 	public static void main(String[] args) {}
 	
@@ -535,6 +536,17 @@ public class Main {
 		liveImageCheckBox.setBounds(new Rectangle(liveImage.getX() + 15, below(liveImage, 2), 130, 17));
 		
 		centralWidget.add(liveImageCheckBox);
+		
+		/*
+		 * 
+		 * Take Screenshot Button
+		 * 
+		 */
+		
+		takeScreenshotButton = new GButton("Take Screenshot", "takeScreenshotButton");
+		takeScreenshotButton.setBounds(rightOf(liveImageCheckBox), liveImageCheckBox.getY(), calculateButtonWidth(takeScreenshotButton), 21);
+		
+		centralWidget.add(takeScreenshotButton);
 		
 		/*
 		 * 
